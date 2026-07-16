@@ -9,6 +9,7 @@ import ScheduleSection from '@/components/home/ScheduleSection'
 import CTABanner from '@/components/home/CTABanner'
 import NewsSection from '@/components/home/NewsSection'
 import AboutTeaser from '@/components/home/AboutTeaser'
+import DojoSection from '@/components/home/DojoSection'
 
 export default function Home() {
   return (
@@ -19,8 +20,8 @@ export default function Home() {
         <WhatIsShidokan />
         <IdentitySection />
         <BushidoSection />
-        <ProgramsSection />
-        <ScheduleSection />
+        {/* <ProgramsSection /> */}
+        {/* <ScheduleSection /> */}
         <CTABanner
           headline="Step on the Mat"
           subline="Your first class is free. No commitment, no pressure — just real training with real people."
@@ -28,7 +29,8 @@ export default function Home() {
           buttonHref="/contact"
         />
         <NewsSection />
-        <AboutTeaser />
+        {/* <AboutTeaser /> */}
+        <DojoSection />
         <CTABanner
           headline="Train With Purpose"
           subline="Every champion started as a beginner. The only thing standing between you and the mat is the decision to step on it."

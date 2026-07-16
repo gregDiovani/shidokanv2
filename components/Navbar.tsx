@@ -25,10 +25,12 @@ function FacebookIcon({ size = 18 }: { size?: number }) {
 
 const navLinks = [
   { href: '/', label: 'Home' },
-  { href: '/about', label: 'About' },
+  // { href: '/about', label: 'About' },
   { href: '/about/shihan', label: 'Meet Shihan' },
-  { href: '/programs', label: 'Programs' },
-  { href: '/schedule', label: 'Schedule' },
+  // { href: '/programs', label: 'Programs' },
+  { href: '/black-belts', label: 'Black Belts' },
+  { href: '/dojo', label: 'Dojo List' },
+  // { href: '/schedule', label: 'Schedule' },
   { href: '/news', label: 'Dojo News' },
   { href: '/contact', label: 'Contact' },
 ]

@@ -21,10 +21,10 @@ function FacebookIcon({ size = 16 }: { size?: number }) {
 
 const quickLinks = [
   { href: '/', label: 'Home' },
-  { href: '/about', label: 'About Us' },
+  // { href: '/about', label: 'About Us' },
   { href: '/about/shihan', label: 'Meet Shihan' },
-  { href: '/programs', label: 'Programs' },
-  { href: '/schedule', label: 'Schedule' },
+  // { href: '/programs', label: 'Programs' },
+  // { href: '/schedule', label: 'Schedule' },
   { href: '/news', label: 'Dojo News' },
   { href: '/contact', label: 'Contact' },
 ]
