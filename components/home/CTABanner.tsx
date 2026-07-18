@@ -1,12 +1,14 @@
 'use client'
 
+import type { ReactNode } from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
+import T from '@/components/T'
 
 interface CTABannerProps {
-  headline: string
-  subline?: string
-  buttonText: string
+  headline: ReactNode
+  subline?: ReactNode
+  buttonText: ReactNode
   buttonHref: string
   dark?: boolean
 }
@@ -25,7 +27,7 @@ export default function CTABanner({ headline, subline, buttonText, buttonHref, d
             <div className="flex items-center justify-center gap-3 mb-6">
               <span className="block w-12 h-px bg-[#DC2626]" />
               <span className="font-display text-[#DC2626] text-sm tracking-[0.25em] uppercase font-semibold">
-                Get Started
+                <T id="Mulai Sekarang" en="Get Started" />
               </span>
               <span className="block w-12 h-px bg-[#DC2626]" />
             </div>

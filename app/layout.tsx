@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next'
 import { Inter, Oswald } from 'next/font/google'
+import { LanguageProvider } from '@/lib/i18n'
 import './globals.css'
 
 const inter = Inter({
@@ -25,6 +26,11 @@ export const metadata: Metadata = {
     description: 'The Triathlon of Martial Arts',
     type: 'website',
   },
+  icons: {
+    icon: '/images/doho_transparent.png',
+    shortcut: '/images/doho_transparent.png',
+    apple: '/images/doho_transparent.png',
+  },
 }
 
 export const viewport: Viewport = {
@@ -40,7 +46,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${oswald.variable} bg-[#0A0A0A]`}>
       <body className="font-sans antialiased grain">
-        {children}
+        <LanguageProvider>{children}</LanguageProvider>
       </body>
     </html>
   )

@@ -1,11 +1,10 @@
 import { notFound } from 'next/navigation'
 import Image from 'next/image'
-import Link from 'next/link'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import NewsCard from '@/components/NewsCard'
-import { newsArticles } from '@/lib/news-data'
-import { ArrowLeft } from 'lucide-react'
+import { getNewsList } from '@/lib/news-data'
+import { BackToNewsLink, MoreFromDojoHeading } from './ArticleChrome'
 import type { Metadata } from 'next'
 
 interface Props {
@@ -13,11 +12,13 @@ interface Props {
 }
 
 export async function generateStaticParams() {
+  const newsArticles = await getNewsList()
   return newsArticles.map((a) => ({ id: a.id }))
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { id } = await params
+  const newsArticles = await getNewsList()
   const article = newsArticles.find((a) => a.id === id)
   if (!article) return {}
   return {
@@ -28,6 +29,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function NewsArticlePage({ params }: Props) {
   const { id } = await params
+  const newsArticles = await getNewsList()
   const article = newsArticles.find((a) => a.id === id)
 
   if (!article) notFound()
@@ -60,16 +62,7 @@ export default async function NewsArticlePage({ params }: Props) {
 
         {/* Article content */}
         <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-          <div className="flex items-center justify-between mb-10 pb-6 border-b border-white/10">
-            <time className="text-[#555555] font-sans text-sm tracking-wider uppercase">{article.date}</time>
-            <Link
-              href="/news"
-              className="inline-flex items-center gap-2 text-[#888888] hover:text-[#F2F2F2] font-display text-sm tracking-widest uppercase transition-colors"
-            >
-              <ArrowLeft size={14} />
-              All News
-            </Link>
-          </div>
+          <BackToNewsLink date={article.date} />
 
           <div className="space-y-6">
             {article.content.map((paragraph, i) => (
@@ -86,7 +79,7 @@ export default async function NewsArticlePage({ params }: Props) {
             <div className="border-t border-white/10 pt-16">
               <div className="flex items-center gap-3 mb-12">
                 <span className="block w-8 h-px bg-[#DC2626]" />
-                <span className="font-display text-[#DC2626] text-sm tracking-[0.2em] uppercase font-semibold">More from the Dojo</span>
+                <MoreFromDojoHeading />
               </div>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {related.map((post, i) => (

@@ -81,7 +81,7 @@ export default function AboutPage() {
               <div className="absolute bottom-6 left-6 right-6">
                 <p className="font-display text-white font-semibold text-lg uppercase tracking-wide">Our Head Instructor</p>
                 <Link href="/about/shihan" className="font-display text-[#DC2626] text-sm tracking-widest uppercase">
-                  Meet Shihan &rarr;
+                  Profile &rarr;
                 </Link>
               </div>
             </div>

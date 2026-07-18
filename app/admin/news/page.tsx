@@ -1,14 +1,18 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { Plus, Trash2 } from 'lucide-react'
 import AdminGuard from '@/components/admin/AdminGuard'
 import AdminNav from '@/components/admin/AdminNav'
-import { newsArticles as initialArticles, type NewsArticle } from '@/lib/news-data'
+import { getNewsList, type NewsArticle } from '@/lib/news-data'
 
 function AdminNewsList() {
-  const [articles, setArticles] = useState<NewsArticle[]>(initialArticles)
+  const [articles, setArticles] = useState<NewsArticle[]>([])
+
+  useEffect(() => {
+    getNewsList().then(setArticles)
+  }, [])
 
   const handleDelete = (id: string) => {
     setArticles((prev) => prev.filter((a) => a.id !== id))

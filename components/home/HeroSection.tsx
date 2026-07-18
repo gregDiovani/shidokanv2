@@ -1,22 +1,49 @@
 'use client'
 
-import Link from 'next/link'
+import { useEffect, useState } from 'react'
 import Image from 'next/image'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronDown } from 'lucide-react'
+import T from '@/components/T'
+
+const slides = [
+  '/images/hero-bg2.JPG',
+  '/images/hero-bg3.JPG',
+  '/images/hero-bg4.png',
+]
 
 export default function HeroSection() {
+  const [slideIndex, setSlideIndex] = useState(0)
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setSlideIndex((i) => (i + 1) % slides.length)
+    }, 5000)
+    return () => clearInterval(timer)
+  }, [])
+
   return (
     <section className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
-      {/* Background image */}
+      {/* Background image carousel */}
       <div className="absolute inset-0 z-0">
-        <Image
-          src="/images/hero-bg.png"
-          alt="Shidokan Karate dojo"
-          fill
-          priority
-          className="object-cover"
-        />
+        <AnimatePresence>
+          <motion.div
+            key={slideIndex}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1 }}
+            className="absolute inset-0"
+          >
+            <Image
+              src={slides[slideIndex]}
+              alt="Shidokan Karate dojo"
+              fill
+              priority={slideIndex === 0}
+              className="object-cover"
+            />
+          </motion.div>
+        </AnimatePresence>
         {/* Dark overlay */}
         <div className="absolute inset-0 bg-[#0A0A0A]/70" />
         {/* Bottom gradient fade */}
@@ -41,32 +68,12 @@ export default function HeroSection() {
           <h1 className="font-display font-bold text-[#F2F2F2] text-6xl sm:text-7xl md:text-8xl lg:text-9xl uppercase tracking-tight leading-none mb-4 text-balance">
             Shidokan
             <br />
-            <span className="text-[#DC2626]">Karate</span>
+            <span className="text-[#DC2626]">Indonesia</span>
           </h1>
 
           <p className="font-display text-[#888888] text-xl sm:text-2xl md:text-3xl uppercase tracking-widest mb-10">
             The Triathlon of Martial Arts
           </p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: 'easeOut', delay: 0.6 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4"
-          >
-            <Link
-              href="/contact"
-              className="bg-[#DC2626] hover:bg-[#B91C1C] text-white font-display font-bold text-sm tracking-widest uppercase px-8 py-4 transition-colors duration-200 min-w-48 text-center"
-            >
-              Start Your Journey
-            </Link>
-            <Link
-              href="/programs"
-              className="border border-white/30 hover:border-white text-[#F2F2F2] font-display font-bold text-sm tracking-widest uppercase px-8 py-4 transition-colors duration-200 min-w-48 text-center"
-            >
-              View Classes
-            </Link>
-          </motion.div>
         </motion.div>
       </div>
 
@@ -77,7 +84,9 @@ export default function HeroSection() {
         transition={{ delay: 1.2, duration: 0.6 }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2"
       >
-        <span className="font-display text-[#555555] text-xs tracking-[0.2em] uppercase">Scroll</span>
+        <span className="font-display text-[#555555] text-xs tracking-[0.2em] uppercase">
+          <T id="Gulir" en="Scroll" />
+        </span>
         <motion.div
           animate={{ y: [0, 6, 0] }}
           transition={{ repeat: Infinity, duration: 1.5, ease: 'easeInOut' }}

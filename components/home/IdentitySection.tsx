@@ -3,6 +3,7 @@
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import SectionHeading from '@/components/SectionHeading'
+import T from '@/components/T'
 
 export default function IdentitySection() {
   return (
@@ -12,8 +13,8 @@ export default function IdentitySection() {
           {/* Text */}
           <div>
             <SectionHeading
-              eyebrow="Our Identity"
-              title="Tradition. Discipline. Spirit."
+              eyebrow={<T id="Identitas Kami" en="Our Identity" />}
+              title={<T id="Tradisi. Disiplin. Jiwa." en="Tradition. Discipline. Spirit." />}
             />
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -23,16 +24,22 @@ export default function IdentitySection() {
               className="mt-8 space-y-4 text-[#888888] font-sans text-base leading-relaxed"
             >
               <p>
-                Founded by Grandmaster Yoshiji Soeno in 1981, Shidokan was born from a belief that
-                the modern martial artist must be versatile, battle-tested, and spiritually grounded.
+                <T
+                  id="Didirikan oleh Grandmaster Yoshiji Soeno pada 1981, Shidokan lahir dari keyakinan bahwa pesilat modern harus serba bisa, teruji dalam pertarungan, dan kuat secara spiritual."
+                  en="Founded by Grandmaster Yoshiji Soeno in 1981, Shidokan was born from a belief that the modern martial artist must be versatile, battle-tested, and spiritually grounded."
+                />
               </p>
               <p>
-                We carry that tradition forward. Our crest represents the union of three arts, the
-                commitment to lifelong training, and the Bushido spirit that guides every student
-                who steps onto our mat.
+                <T
+                  id="Kami meneruskan tradisi itu. Lambang kami mewakili persatuan tiga aliran bela diri, komitmen pada latihan seumur hidup, dan jiwa Bushido yang membimbing setiap murid yang menginjak matras kami."
+                  en="We carry that tradition forward. Our crest represents the union of three arts, the commitment to lifelong training, and the Bushido spirit that guides every student who steps onto our mat."
+                />
               </p>
               <p>
-                This is not fitness. This is not sport. This is a way of life.
+                <T
+                  id="Ini bukan sekadar kebugaran. Ini bukan sekadar olahraga. Ini adalah jalan hidup."
+                  en="This is not fitness. This is not sport. This is a way of life."
+                />
               </p>
             </motion.div>
           </div>
@@ -56,7 +63,7 @@ export default function IdentitySection() {
                 <div className="absolute inset-0 bg-[#0A0A0A]/20" />
               </div>
               <p className="text-[#555555] text-xs font-sans text-center tracking-wider uppercase">
-                The Shidokan Crest
+                <T id="Lambang Shidokan" en="The Shidokan Crest" />
               </p>
             </div>
             <div className="space-y-4 mt-8">
@@ -70,7 +77,7 @@ export default function IdentitySection() {
                 <div className="absolute inset-0 bg-[#0A0A0A]/20" />
               </div>
               <p className="text-[#555555] text-xs font-sans text-center tracking-wider uppercase">
-                Dojo Badge
+                <T id="Lencana Dojo" en="Dojo Badge" />
               </p>
             </div>
           </motion.div>

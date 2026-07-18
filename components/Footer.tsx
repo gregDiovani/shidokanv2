@@ -1,5 +1,9 @@
+'use client'
+
 import Link from 'next/link'
-import { MapPin, Phone, Mail, Clock } from 'lucide-react'
+import Image from 'next/image'
+import { MapPin, Phone, /* Mail, */ Clock } from 'lucide-react'
+import { useLanguage } from '@/lib/i18n'
 
 function InstagramIcon({ size = 16 }: { size?: number }) {
   return (
@@ -11,53 +15,61 @@ function InstagramIcon({ size = 16 }: { size?: number }) {
   )
 }
 
-function FacebookIcon({ size = 16 }: { size?: number }) {
+function WhatsAppIcon({ size = 16 }: { size?: number }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.92 0-2.65-1.03-5.14-2.9-7.01A9.87 9.87 0 0 0 12.04 2zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.26-8.24a8.2 8.2 0 0 1 5.83 2.42 8.19 8.19 0 0 1 2.41 5.83c0 4.55-3.7 8.23-8.25 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.17.24-.64.81-.78.97-.14.17-.29.19-.53.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.39-1.72-.14-.24-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.15.16-.25.24-.42.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.42-.14-.01-.31-.01-.48-.01a.92.92 0 0 0-.67.31c-.23.24-.87.85-.87 2.08 0 1.22.89 2.41 1.02 2.58.12.17 1.75 2.67 4.24 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.23-.16-.48-.28z"/>
     </svg>
   )
 }
 
 const quickLinks = [
-  { href: '/', label: 'Home' },
-  // { href: '/about', label: 'About Us' },
-  { href: '/about/shihan', label: 'Meet Shihan' },
-  // { href: '/programs', label: 'Programs' },
-  // { href: '/schedule', label: 'Schedule' },
-  { href: '/news', label: 'Dojo News' },
-  { href: '/contact', label: 'Contact' },
+  { href: '/', id: 'Home', en: 'Home' },
+  { href: '/about/shihan', id: 'Profile', en: 'Profile' },
+  { href: '/news', id: 'Berita Dojo', en: 'Dojo News' },
+  { href: '/#faq', id: 'FAQ', en: 'FAQ' },
+  { href: '/contact', id: 'Kontak', en: 'Contact' },
 ]
 
-const programs = [
-  { href: '/programs#cubs', label: 'Cubs (4–5)' },
-  { href: '/programs#pre-lion', label: 'Pre-Lion (5–8)' },
-  { href: '/programs#lion', label: 'Lion (8–18)' },
-  { href: '/programs#adult', label: 'Adult (18+)' },
-  { href: '/programs#kata', label: 'Kata (All Ages)' },
-  { href: '/programs#demo-team', label: 'Demo Team' },
-]
+// const programs = [
+//   { href: '/programs#cubs', label: 'Cubs (4–5)' },
+//   { href: '/programs#pre-lion', label: 'Pre-Lion (5–8)' },
+//   { href: '/programs#lion', label: 'Lion (8–18)' },
+//   { href: '/programs#adult', label: 'Adult (18+)' },
+//   { href: '/programs#kata', label: 'Kata (All Ages)' },
+//   { href: '/programs#demo-team', label: 'Demo Team' },
+// ]
 
 export default function Footer() {
+  const { lang } = useLanguage()
+
   return (
     <footer className="bg-[#0D0D0D] border-t border-white/5 pt-16 pb-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mb-16">
           {/* Brand */}
           <div className="lg:col-span-1">
             <Link href="/" className="inline-flex items-center gap-2 mb-4 group">
+              <Image
+                src="/images/doho_transparent.png"
+                alt="Shidokan Indonesia"
+                width={36}
+                height={36}
+                className="h-9 w-9 object-contain"
+              />
               <span className="font-display font-bold text-2xl tracking-widest text-[#F2F2F2] uppercase">
-                Shidokan
+                Shidokan<span className="text-[#DC2626]">ID</span>
               </span>
               <span className="w-1.5 h-1.5 rounded-full bg-[#DC2626]" />
             </Link>
             <p className="text-[#888888] text-sm leading-relaxed mb-6 font-sans">
-              The Triathlon of Martial Arts. Forging disciplined warriors through karate,
-              Muay Thai, and grappling since 1981.
+              {lang === 'id'
+                ? 'The Triathlon of Martial Arts. Menempa petarung yang disiplin lewat karate, kickboxing, dan grappling sejak 1981.'
+                : 'The Triathlon of Martial Arts. Forging disciplined warriors through karate, Kickboxing, and grappling since 1981.'}
             </p>
             <div className="flex items-center gap-4">
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/shidokan.id?igsh=MWk2bnljMzdkMTVlNg=="
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
@@ -66,13 +78,13 @@ export default function Footer() {
                 <InstagramIcon size={16} />
               </a>
               <a
-                href="https://facebook.com"
+                href="https://api.whatsapp.com/send?phone=628175061100"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Facebook"
+                aria-label="WhatsApp"
                 className="w-9 h-9 border border-white/10 flex items-center justify-center text-[#888888] hover:text-[#F2F2F2] hover:border-[#DC2626] transition-colors"
               >
-                <FacebookIcon size={16} />
+                <WhatsAppIcon size={16} />
               </a>
             </div>
           </div>
@@ -80,7 +92,7 @@ export default function Footer() {
           {/* Quick Links */}
           <div>
             <h3 className="font-display font-semibold text-[#F2F2F2] tracking-widest uppercase text-sm mb-6">
-              Quick Links
+              {lang === 'id' ? 'Tautan Cepat' : 'Quick Links'}
             </h3>
             <ul className="space-y-3">
               {quickLinks.map((link) => (
@@ -89,26 +101,7 @@ export default function Footer() {
                     href={link.href}
                     className="text-[#888888] hover:text-[#DC2626] text-sm font-sans transition-colors"
                   >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Programs */}
-          <div>
-            <h3 className="font-display font-semibold text-[#F2F2F2] tracking-widest uppercase text-sm mb-6">
-              Programs
-            </h3>
-            <ul className="space-y-3">
-              {programs.map((p) => (
-                <li key={p.href}>
-                  <Link
-                    href={p.href}
-                    className="text-[#888888] hover:text-[#DC2626] text-sm font-sans transition-colors"
-                  >
-                    {p.label}
+                    {lang === 'id' ? link.id : link.en}
                   </Link>
                 </li>
               ))}
@@ -118,34 +111,27 @@ export default function Footer() {
           {/* Contact */}
           <div>
             <h3 className="font-display font-semibold text-[#F2F2F2] tracking-widest uppercase text-sm mb-6">
-              Contact
+              {lang === 'id' ? 'Kontak' : 'Contact'}
             </h3>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <MapPin size={16} className="text-[#DC2626] mt-0.5 shrink-0" />
                 <span className="text-[#888888] text-sm font-sans leading-relaxed">
-                  123 Dojo Lane, Suite 200<br />
-                  Your City, ST 00000
+                  Jl. Kalisari I No.1, RT.001/RW.11, Kapasari,<br />
+                  Kec. Genteng, Surabaya, Jawa Timur 60272
                 </span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone size={16} className="text-[#DC2626] shrink-0" />
-                <a href="tel:+15551234567" className="text-[#888888] hover:text-[#F2F2F2] text-sm font-sans transition-colors">
-                  (555) 123-4567
-                </a>
-              </li>
-              <li className="flex items-center gap-3">
-                <Mail size={16} className="text-[#DC2626] shrink-0" />
-                <a href="mailto:info@shidokan.com" className="text-[#888888] hover:text-[#F2F2F2] text-sm font-sans transition-colors">
-                  info@shidokan.com
+                <a href="https://api.whatsapp.com/send?phone=628175061100" target="_blank" rel="noopener noreferrer" className="text-[#888888] hover:text-[#F2F2F2] text-sm font-sans transition-colors">
+                  +62 817-5061-100 (WhatsApp)
                 </a>
               </li>
               <li className="flex items-start gap-3">
                 <Clock size={16} className="text-[#DC2626] mt-0.5 shrink-0" />
                 <div className="text-[#888888] text-sm font-sans leading-relaxed">
-                  <p>Mon–Fri: 4:00 PM – 8:00 PM</p>
-                  <p>Saturday: 9:00 AM – 12:00 PM</p>
-                  <p>Sunday: Closed</p>
+                  <p>{lang === 'id' ? 'Senin–Jumat: Buka 24 jam' : 'Mon–Fri: Open 24 hours'}</p>
+                  <p>{lang === 'id' ? 'Minggu: Tutup' : 'Sunday: Closed'}</p>
                 </div>
               </li>
             </ul>
@@ -155,10 +141,10 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="border-t border-white/5 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-[#555555] text-xs font-sans">
-            &copy; 2026 Shidokan. All rights reserved.
+            &copy; 2026 Shidokan. {lang === 'id' ? 'Semua hak dilindungi.' : 'All rights reserved.'}
           </p>
           <p className="text-[#555555] text-xs font-sans">
-            Forged in discipline. Built to last.
+            {lang === 'id' ? 'Ditempa dalam disiplin. Dibangun untuk bertahan.' : 'Forged in discipline. Built to last.'}
           </p>
         </div>
       </div>

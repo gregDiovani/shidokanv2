@@ -44,6 +44,27 @@ export const quickFacts: QuickFact[] = [
   { label: 'Sertifikasi', value: 'Pelatih Fisik Nasional (LP2O LANKOR), Personal Trainer (RAI Institute)' },
 ]
 
+export const quickFactsEn: QuickFact[] = [
+  { label: 'Position', value: 'Shihan & Branch President — Shidokan Indonesia' },
+  { label: 'Rank', value: 'DAN IV — Shidokan International' },
+  { label: 'Started Training', value: 'Kyokushin Karate since 2003' },
+  { label: 'Black Belt', value: 'Shodan 2015 (Shihan Mas Gufron Heru, Surabaya)' },
+  { label: 'Achievements', value: '1st Place, 20th WKOSI National Championship 2017 & Indonesia Open (IFKA) 2019' },
+  { label: 'International', value: 'Indonesia representative — 12th World Open Karate Tournament, Tokyo' },
+  { label: 'Certifications', value: 'National Physical Trainer (LP2O LANKOR), Personal Trainer (RAI Institute)' },
+]
+
+export const bioParagraphsEn: string[] = [
+  'The organization was founded by Erick Danurahardja, a Kyokushin Karate practitioner since 2003, who at the time was a member of Kyokushin Karate Indonesia (KKI) led by Shihan JB Sujoto.',
+  'In 2008, KKI joined Shinkyokushinkai led by Kenji Midori and became the World Karate Organization Shinkyokushin Indonesia (WKOSI).',
+  'Erick Danurahardja took his first black belt exam in 2015 under Shihan Mas Gufron Heru in Surabaya and passed to Shodan.',
+  'He competed in the 20th WKOSI National Championship in 2017 and won 1st place in the men\'s open class.',
+  'In 2019 he achieved Nidan rank after being tested directly by Shihan JB Sujoto through 10 rounds of kumite in Bandungan.',
+  'That same year he also won 1st place at the Indonesia Open Tournament held by the Indonesia Fullcontact Karate Association (IFKA), followed by a gold medal at Tarung Bebas Indonesia (TBI), and finally represented Indonesia as an athlete at the 12th World Open Karate Tournament (WOKT) in Tokyo, Japan.',
+  'Erick Danurahardja has also won several Muay Thai and kickboxing exhibition matches, and whenever he travels — locally or abroad — he always makes time to find a nearby dojo or camp to train and build relationships globally. Countries he has trained in include Singapore, Vietnam, Thailand, Korea, and Japan.',
+  'Whenever a legendary practitioner such as Kenji Midori, Shinichi Sotodate, Akira Masuda, Satoshi Yui, Yoshiji Soeno, Kaoru Okubo, Trainer Gae, or Saenchai holds a seminar in Indonesia, Erick always makes time to attend and learn. For him, knowledge has no limits and must constantly be sought from great people whose accomplishments in their youth are widely recognized.',
+]
+
 export const testimonials: Testimonial[] = [
   {
     name: 'Yoshiji Soeno',
@@ -62,6 +83,404 @@ export const testimonials: Testimonial[] = [
     date: 'Juni 2024',
     quote: 'You have a good skills, not only fight but also understand bushido in Kyokushin way.',
     image: '/images/akira-masuda.png',
+  },
+]
+
+export const timelineEn: TimelineEntry[] = [
+  {
+    date: 'September 18, 2020',
+    title: 'Training and curriculum standardization process under the guidance of Shihan Shin from Korea',
+    paragraphs: [
+      'After leaving WKO Shinkyokushinkai Indonesia, Erick Danurahardja underwent a training and curriculum standardization process under the guidance of Shihan Shin from Korea. On September 18, 2020, he received recognition as branch chief of IKO World Zenkyokushin in the form of a Branch Chief certificate issued by the honbu under Kazuyuki Hasegawa (winner of the 2nd All Japan Karate Open Tournament), Branch Chief of Aichi Prefecture, who was appointed directly by Sosai Oyama at the time.',
+    ],
+  },
+  {
+    date: 'November 14, 2020',
+    title: 'Madame Chang Rooftop',
+    paragraphs: [
+      'Under the new banner, Xpartan dojo, established since 2017 under the guidance of Erick Danurahardja, received an exclusive invitation from Madam Chang for a joint training session on the rooftop of the Madam Chang East Surabaya branch. Xpartan dojo members, roughly 30 people at the time, performed basic movements, tameshiwari, and kumite to introduce the people of Surabaya to full-contact Kyokushin Karate.',
+    ],
+  },
+  {
+    date: 'November 29, 2020',
+    title: 'Vortex Dojo Bali officially joins Shidokan Indonesia',
+    paragraphs: [
+      'The Bali branch, headed by Made Senjaya, together with the instructors of Dojo Vortex and Brescia — Wijaya The, Andy Willy, and Oktavian Eka Putra — came to Surabaya to express their intent to join. After discussion and acceptance, the Bali branch became the 2nd branch established after East Java.',
+    ],
+  },
+  {
+    date: 'January 31, 2021',
+    title: "Erick Danurahardja's DAN III belt promotion by Shihan Shin and Honbu Japan",
+    paragraphs: [
+      'Erick Danurahardja was promoted to Dan III by Shihan Shin and approved by the honbu. At that time several names from the Bali branch dojo were also promoted without examination due to age and their willingness to remain loyal to the organization.',
+    ],
+  },
+  {
+    date: 'September 4-5, 2021',
+    title: 'Inauguration of dojo management in the Central Java region, and the excellence of senpai Herry S (late), oldest and best exam participant',
+    paragraphs: [
+      'Inauguration of management for dojos located in Central Java, followed the next day by the Dan I exam attended by 5 people. During that exam, a participant named senpai Herry S (late) received appreciation as the best exam participant because, despite being the oldest participant, he followed the entire examination process from start to finish with full commitment and excellent movements.',
+    ],
+  },
+  {
+    date: 'November 7, 2021',
+    title: "Erick Danurahardja's Kickboxing Black Belt Grading pass to DAN I at PPKBI",
+    paragraphs: [
+      'Erick Danurahardja took part in the "Black Belt Grading Kickboxing" and was declared to have passed to Dan I PPKBI.',
+    ],
+  },
+  {
+    date: 'December 11-12, 2021',
+    title: 'Cooperative relationship with IKO Nakamura Indonesia',
+    paragraphs: [
+      'Erick Danurahardja, Yafed Immanuel, Abdul Halim, Adrian Herdianto, and Wey Chen Lasmono took part in the National Seminar & Referee Certification by Sensei Jesse Chandra (Branch Chief IKO Nakamura). This event brought the organization closer to IKON Indonesia members, and both organizations agreed to always maintain a healthy cooperative relationship.',
+    ],
+  },
+  {
+    date: 'December 2021',
+    title: 'Kyokushin Central Sulawesi Branch, Luwuk City, officially joins Zen Kyokushin Indonesia',
+    paragraphs: [
+      'The Central Sulawesi branch, in Luwuk City, headed by Senpai Irwan Yulianto, joined. Together with his kohai Andi Lambasa, he traveled all the way to Surabaya to declare their intent to join Zen Kyokushin Indonesia and undergo rank equivalency, so that their previous organization\'s last rank, Kyu 1, was recognized.',
+    ],
+  },
+  {
+    date: 'December 2021 - January 2022',
+    title: "Erick Danurahardja's suspicion of signs of an internal organizational coup within Zen Kyokushin Indonesia, and his desire to affiliate with Shidokan Indonesia",
+    paragraphs: [
+      'Seeing the beginnings of a movement among several dojo trainers outside East Java to defect in a disrespectful manner, and spreading false information to other dojos outside the island, Erick Danurahardja — as the sole person who brought Zenkyokushin into Indonesia — began to think about safeguarding the organization by affiliating with WKA Shidokan. This way, should an internal coup occur, there would still be an officially recognized international body to house members with a genuine Bushido spirit who wished to sincerely grow the organization and not be easily swayed.',
+    ],
+  },
+  {
+    date: 'January 2022',
+    title: 'Erick Danurahardja officially accepted by Shidokan as Shihan (Head Instructor) for Indonesia',
+    paragraphs: [
+      'Starting in early January, he began regularly contacting one of the long-known Kyokushin legends, Yoshiji Soeno (Tiger of Kyokushin), a favored student of Sosai Oyama, also represented by his wife as Honbucho (HQ manager), to explain the situation in Indonesia and Erick Danurahardja\'s wish to join for the sake of the continuity of the members and students as the next generation.',
+      'After a lengthy process of interviews and background checks regarding rank and achievements, on January 31, 2022, the black belt council at the honbu in Ito, Shizuoka, accepted Erick Danurahardja as Branch President of Indonesia with the title "Shihan" (Head Instructor).',
+    ],
+  },
+  {
+    date: 'February 19-20, 2022',
+    title: 'IKO Nakamura Indonesia Open Friendship Cup National Championship',
+    paragraphs: [
+      'As the pandemic gradually came under control, IKO Nakamura Indonesia held the Open Friendship Cup National Championship at Lippo Plaza Jember. The organization sent several of its best fighters. Erick was asked to serve as arbiter alongside Sensei Jesse Chandra. Adrian Herdianto took 1st place, meeting fellow Xpartan dojo member Bagus Gede Krishna, who took 2nd, in the final. In the youth class, Alkhairiyah dojo representative Pyscilya took 3rd place, and Sultan Zaki took 3rd place.',
+    ],
+  },
+  {
+    date: 'June 9, 2022',
+    title: 'Erick Danurahardja affirms his physical training competence by completing the "National Physical Trainer" certification by LP2O LANKOR',
+    paragraphs: [
+      'Erick Danurahardja obtained the "National Physical Trainer" certification held by LP2O LANKOR to expand his knowledge in support of the organization\'s physical training programs. He had previously earned a "Personal Trainer" certification at RAI Institute in 2018.',
+    ],
+  },
+  {
+    date: 'June 9, 2022',
+    title: 'Black belt examination conducted by a Shihan from Korea, with internationally certified Dan V rank',
+    paragraphs: [
+      'Due to the high number of simultaneous black belt exam requests, and given that Erick\'s rank at the time was still Dan III (only able to examine up to Dan I), the organization brought in an internationally certified Dan V examiner. By decision of the management, the organization invited Shihan Shin Seoung Sub and Mr. Choi Junhee (then Vice President of WAKO Korea).',
+      'Several names who passed the examination:',
+    ],
+    list: [
+      'Abdul Aziz promoted to Dan III',
+      'Ivan Andinata promoted to Dan III',
+      'Oktavian Eka Putra promoted to Dan II',
+      'Melkianus Raharjo Jemahun promoted to Dan I',
+      'Amir promoted to Dan I',
+      'Steven Stevanus promoted to Dan I',
+    ],
+  },
+  {
+    date: 'July 30-31, 2022',
+    title: 'TIGER KING Kickboxing Championship Malang under the Shidokan banner, supported by Knock Out Boxing Camp',
+    paragraphs: [
+      'For the first time, 3 fighters carried the Shidokan name at the TIGER KING Kickboxing Championship held in the city of Malang. With extra preparation support from Knock Out Boxing Camp, led by Senpai Bernard Purnomo, the three fighters — Adrian Herdianto, Wey Chen Lasmono, and Gregorio Diovani — returned home with bronze medals.',
+    ],
+  },
+  {
+    date: 'October 1, 2022',
+    title: 'Star of Kyokushin Championship at Maspion Square Surabaya, and issuance of Instructor & Referee certificates from Honbu Shidokan Japan',
+    paragraphs: [
+      'Competed in the Star of Kyokushin Championship held at Maspion Square Surabaya. Santoso won decisively by ippon and took 1st place in his class. Bagus Gede Krishna took 2nd place after meeting Marfin Alfonso again in the final, while Irfan Hardono took 3rd place. Benedict Willem Troy took 2nd place.',
+      'From Alkhairiyah dojo, Pyscilya and Sultan Zaki took 2nd place, and Pycho took 3rd place. From Ampel dojo, Kudratullah (now an instructor at Darul Iman Situbondo dojo) took 3rd place.',
+      'On the same date, Honbu Shidokan issued instructor and referee certificates to three individuals deemed qualified: Adrian Herdianto, Darwin Kurniawan, and Oktavian Eka Putra.',
+    ],
+  },
+  {
+    date: 'November 2022',
+    title: 'Erick Danurahardja invited to Korea as a judge for the 17th Korea Dream Cup International Tournament, and the opportunity to train in a 40-man kumite session',
+    paragraphs: [
+      'Erick Danurahardja received an invitation to serve as a judge at the 17th Korea Dream Cup tournament. Several other full-contact karate organizations, such as Byakuren, Kyokushin, Yushikaikan, and Shinkyokushin, also sent their best athletes. Other participating countries included Japan and Nepal. This event inspired Erick to create a Dream Cup in Indonesia.',
+      'The night before the competition, Erick had the opportunity to have dinner with Kazuyuki Hasegawa and received an offer to train together in April 2023 at Sosai Oyama\'s honbu in Ikebukuro, the birthplace of Kyokushin and its uchi deshi fighters. Hasegawa also instructed Erick to prepare for 40 rounds of kumite, with the promise of a rank promotion if he passed.',
+      'Before returning home, Erick took the opportunity to visit Shihan Howon Jung\'s dojo in Seoul and discussed karate at length. Before saying goodbye, Erick received a dogi set from Shihan Jung as a keepsake.',
+    ],
+  },
+  {
+    date: 'December 2022',
+    title: 'Kyokushin Grand Prix 5 match at Royal Plaza Surabaya, and Matthew Jeremy\'s victory at the Lindu Aji XVII Competition in Semarang',
+    paragraphs: [
+      'Competed in Kyokushin Grand Prix 5 held at Royal Plaza Surabaya. Bagus Gede Krishna placed 2nd after once again facing Marfin Alfonso in the final, with Alfonso retaining his previous win.',
+      'Santoso once again took 1st place with a final win over fellow dojo member Daniel Tjakra. Jemima Rumiza Diovani won the adult women\'s one-match category, while the girls\' category was won by Hadijah in 1st place. Sultan Zaki took 1st place in the youth class.',
+      'After registering 2 names for selection to compete at Lindu Aji XVII in Semarang, Matthew Jeremy was chosen to compete and won his match by TKO.',
+    ],
+  },
+  {
+    date: 'December 23, 2022',
+    title: 'Erick Danurahardja: Facing an Organizational Coup at Zen Kyokushin Indonesia and Upholding the Spirit of Budo',
+    paragraphs: [
+      'What Erick had already predicted finally happened. Most of the instructors defected, splitting off and provoking other instructors to switch to a local Kyokushin organization without affiliation to Japan, under the pretext of not wanting to be led by Kazuyuki Hasegawa\'s strict rules. This coup had been planned for almost a year with the goal of having Erick removed from the organization.',
+      'Firmly and swiftly, Erick immediately reported this to the honbu, and the Board of Directors agreed to freeze the names of the defectors who already held black belts and reported them to the Branch Chief Association. This meant the blacklisted names would never be accepted at any organization affiliated with that major Japanese association.',
+      'At that time, only a handful of senior members and instructors still possessed the spirit of a true warrior, firmly and bravely refusing sweet offers made purely for image. They were Oktavian Eka Putra, Yafed Immanuel, Achmad Noer Hidayat, Abdul Halim, and Irwan Yulianto. From this, Erick learned that quantity must also be balanced with quality.',
+    ],
+  },
+  {
+    date: 'January 14-15, 2023',
+    title: 'The first Gashuku held with a new spirit, a new chapter with loyal, disciplined, and warrior-spirited members',
+    paragraphs: [
+      'Held at UTC (Ubaya Training Center) Trawas, the event ran for 2 days to build camaraderie among members of the organization nationally. Erick shared the mission to be achieved in 2023: holding national and international-scale competitions, and urging all members to remain steadfast as true karateka.',
+      'The organization\'s theme for 2023 was maintaining organizational unity, solidarity among dojos, and rebuilding everything from scratch with a fresh spirit.',
+      'The second day closed with an examination supervised and evaluated by Erick Danurahardja and Sensei Achmad Noer Hidayat, with the following results:',
+    ],
+    list: [
+      'William Adriano promoted to Dan I',
+      'Dedy Setio promoted to Dan I',
+      'Adrian Herdianto promoted to Kyu I',
+    ],
+  },
+  {
+    date: 'January 31, 2023',
+    title: "Shidokan's 1-Year Milestone in Indonesia: Johan Samuel Nangin Joins, Bali Strengthens Synergy with Shidokan Indonesia",
+    paragraphs: [
+      'Exactly 1 year after Erick brought Shidokan into Indonesia, Johan Samuel Nangin from SoKyokushin declared his intent to join. Bali province gained further strength through synergy with Sensei Oktavian Putra.',
+    ],
+  },
+  {
+    date: 'March 18, 2023',
+    title: 'Santoso Competes in One Pride MMA: Wins by 17-Second KO!!',
+    paragraphs: ['Santoso competed in One Pride MMA and won by KO in just 17 seconds.'],
+  },
+  {
+    date: 'March 19, 2023',
+    title: "Competing in an Amateur MMA Championship: Jemima Diovani Wins 1st Place in the Women's Category and Earns a Full Trip & Accommodation to Malaysia",
+    paragraphs: [
+      'Sent Jemima Diovani and Benedict Willem Troy to an amateur MMA championship. Jemima won by submission and earned the best fighter title in the women\'s category, winning a ticket and full accommodation to Malaysia.',
+    ],
+  },
+  {
+    date: 'April 2023',
+    title: 'Erick Danurahardja Travels to Japan for the International 40-Man Kumite Training, and Successfully Promotes to Black Belt Dan IV',
+    paragraphs: [
+      'Erick traveled to Japan alone with several specific agendas, one of which was answering Kazuyuki Hasegawa\'s challenge to prove his ability to complete 40 rounds of kumite and 16 advanced-level kata.',
+      'At Sosai Oyama\'s honbu in Ikebukuro, Erick was thoroughly tested alongside many karateka from other countries, including Australia, Chile, Pakistan, India, Korea, Iran, Finland, Romania, Germany, and China.',
+      '"You can count on one hand the Indonesians who have trained there — it\'s truly a joy and I never imagined I\'d be here now. This is truly a dream come true." — Erick Danurahardja, in a brief address to all the karateka from around the world present there.',
+      'With the event concluding from morning until night in Ikebukuro, Erick proudly reached Dan IV rank, witnessed by all the karateka in attendance.',
+    ],
+  },
+  {
+    date: 'May 2023',
+    title: "Erick Danurahardja's Visit to Honbu Shidokan: Learning from Sosui Yoshiji Soeno and Preparing for an International Seminar in Indonesia",
+    paragraphs: [
+      'After several weeks in Tokyo, Erick visited Ito, Shizuoka to visit Honbu Shidokan. The Sosui shared stories of his youth training under Sosai Oyama, and how he earned the nickname "Tiger of Kyokushin."',
+      'The most important agenda of the Ito visit was discussing the organization\'s bylaws, covering Erick\'s rights and responsibilities as the sole Branch President for Indonesia, as well as mandatory rules from headquarters.',
+      'This was followed by a casual discussion preparing for Yoshiji Soeno\'s visit to Indonesia in June 2023 for a seminar and international tournament.',
+    ],
+  },
+  {
+    date: 'June 24-25, 2023',
+    title: "Closing of Honbu Shidokan's Visit to Indonesia: Evaluation, Recognition, and the Success of the Bali Open Tournament by Sosui Yoshiji Soeno",
+    paragraphs: [
+      'The Shidokan Bali Open Tournament & Seminar was held. Sensei Oktavian Eka Putra, assisted by Sensei Johan Nangin, hosted and organized this major event. Sosui Soeno and Honbucho Iuliana brought their 3 top fighters, Shingo Yokoyama, Kiichi Yamada, and Yusei Hirasawa, accompanied by Shihan Naotaka Tamura and Shihan Takashi Saito along with their wives.',
+      'The seminar was held at Dhyana Pura University, attended by 50 participants from various organizations. The event closed with rank equivalency and recognition as International Shidokan Black Belt for:',
+    ],
+    list: [
+      'Erick Danurahardja (Dan IV)',
+      'Johan Samuel Nangin (Dan II)',
+      'Darwin Kurniawan (Kyu I promoted to Dan I)',
+      'Gabriel Constantine Nangin (Kyu I promoted to Dan I)',
+    ],
+  },
+  {
+    date: 'June 26, 2023',
+    title: "House of Lion Dojo Indonesia, Sensei Johan Nangin's Dedication, Inaugurated Directly by Sosui Yoshiji Soeno in Sanur, Bali",
+    paragraphs: [
+      'House of Lion, a dedication by Sensei Johan Nangin to karate, was finally inaugurated directly by Sosui Yoshiji Soeno in Sanur, Bali, as part of WKA The Shidokan.',
+    ],
+  },
+  {
+    date: 'June 27, 2023',
+    title: "Closing of Honbu Shidokan's Visit to Indonesia: Evaluation Results and Recognition from Sosui Yoshiji Soeno",
+    paragraphs: [
+      "The Honbu delegation's last day in Indonesia before returning to Japan. Several evaluation results and remarks from the Sosui:",
+    ],
+    list: [
+      'Inviting Shidokan Indonesia to compete at the world championship in Japan every year',
+      "Fully entrusting rank examinations up to a maximum of Dan III to Erick Danurahardja",
+      'Adrian Herdianto promoted to Dan I based on his fighting ability and sportsmanship, approved by Honbucho Iuliana, Shihan Tamura, and Shihan Saito',
+    ],
+  },
+  {
+    date: 'July 21, 2023',
+    title: 'Migration of Lion Dojo Sokyokushin to Shidokan: A New Beginning for Lion Dojo Surabaya',
+    paragraphs: [
+      "Starting from the Lion Dojo Sokyokushin instructor's wish to migrate to become Lion Dojo Shidokan, Erick Danurahardja welcomed the idea with open arms. However, due to incitement and slander from a resentful individual, the plan to join was unilaterally cancelled within 2 days.",
+      'Several members disappointed by this sudden cancellation, including Peter Drago who still wanted to move his two children to Shidokan, encouraged Erick to open a new dojo in west Surabaya, led directly by him. The dojo kept the name Lion Dojo as a tribute to the pioneering work of Sensei Johan Nangin.',
+      'A few weeks later, Sokyokushin Indonesia national champion Marfin Alfonso also withdrew and moved to Shidokan as an instructor, eventually being deemed fit to become the head coach of Lion Dojo with the title Shihandai (assistant head instructor).',
+    ],
+  },
+  {
+    date: 'August 2023',
+    title: '2023 IKO Nakamura (IKON) Open National Championship',
+    paragraphs: [
+      'Competed in the 2023 IKON Open National Championship. Erick once again served as arbiter alongside host Sensei Jesse Chandra. In the youth class, Sultan Zaki and Pyscilya took 2nd place, Risma took 3rd place, Ahmad Bayu took 1st place in the children\'s class, while Queen won the one-match category.',
+    ],
+  },
+  {
+    date: 'September 2023',
+    title: 'PORPROV Kickboxing Competition in Jombang: Jemima Rumiza Diovani Wins Gold Representing the City of Surabaya',
+    paragraphs: [
+      'Jemima Rumiza Diovani, representing the city of Surabaya, won the gold medal in the PORPROV kickboxing event in the city of Jombang.',
+    ],
+  },
+  {
+    date: 'November 4-5, 2023',
+    title: 'Open Samurai Dream Cup Championship at Home Pro Pakuwon Mall Surabaya',
+    paragraphs: [
+      'The organization held an open championship called the Samurai Dream Cup, attended by 10 organizations with 160 participants. Darwin Kurniawan, as event committee chair, successfully made the event run smoothly and excitingly.',
+      'Unlike typical national karate events, there was a Duathlon Match (full-contact karate round 1, kickboxing round 2) and an Epic Fight — an open-weight match between Gabriel Jericho Nangin (68kg, Shidokan) and Rico Alghazali (130kg, Kyokushin Bushido).',
+    ],
+  },
+  {
+    date: 'November 18, 2023',
+    title: 'Special Training with Satoshi Yui, held with the Kyokushin Mental Development Association (PMK)',
+    paragraphs: [
+      'Received an invitation from the Kyokushin Mental Development Association to attend the Special Training with Satoshi Yui event. Shihan Satoshi Yui was once a model in kihon, ido geiko, and kata videos back at WKO Shinkyokushinkai, which formed the basis of Erick\'s learning while he was at WKOSI.',
+    ],
+  },
+  {
+    date: 'February 23-24, 2024',
+    title: 'Gashuku II Indonesia Held, Followed by a Black Belt Examination at Villa Sahabat Trawas',
+    paragraphs: [
+      'Gashuku II was held at Villa Sahabat, Trawas. Erick explained that the theme for 2024 was "making history" — starting with Sensei Achmad Noer Hidayat and Shihandai Marfin Alfonso departing to Japan for examination and competing at the 2nd All Japan Tournament.',
+      'The Gashuku closed on day 2 with a black belt examination attended by more participants than the previous year, including 3 people from the Luwuk, Central Sulawesi branch. Exam results:',
+    ],
+    list: [
+      'Abdul Halim promoted to Dan II',
+      'Laode Suwarno Nur promoted to Dan I',
+      'Rahmat Syahroni S Larau promoted to Dan I',
+      'Mohammad Agung Saleh promoted to Dan I',
+      'Marfin Alfonso Teriubun promoted to Kyu 1',
+      'Yehezkiel Dessy Wijaya promoted to Kyu 1',
+    ],
+  },
+  {
+    date: 'March 2024',
+    title: 'Adnan Yusuf Mamonto from Bitung, North Sulawesi, Officially Joins Shidokan Indonesia Under the Name Dojo Ronin',
+    paragraphs: [
+      'Adnan Yusuf Mamonto from Bitung, North Sulawesi, joined the organization under the dojo name Ronin.',
+    ],
+  },
+  {
+    date: 'April 2024',
+    title: 'Organization Sends 2 Members to Japan for the First Time to Compete and Take a Black Belt Examination',
+    paragraphs: [
+      "A proof of the organization's independence, sending Sensei Achmad Noer Hidayat and Shihandai Marfin Alfonso Teriubun to Japan — the first time either had set foot in the land of the Sakura. Sensei Achmad Noer took the examination, performing a series of advanced kata and 40 rounds of kumite, and was declared to have passed to International Dan IV.",
+    ],
+  },
+  {
+    date: 'May 3, 2024',
+    title: 'Leadership Change in Central Sulawesi: Irwan Yulianto Steps Down, Laode Suwarno Nur Leads with New Dojo "Cheetah"',
+    paragraphs: [
+      'Irwan Yulianto resigned from the organization. Laode Suwarno Nur volunteered to take over and became the head of the Central Sulawesi Provincial Board, with a new dojo named Dojo Cheetah.',
+    ],
+  },
+  {
+    date: 'May 25-26, 2024',
+    title: 'Organization Brings in Kancho Yoshii Okubo, Shihan Takashi Saito, and Shihan Naotaka Tamura as Guests of Honor at the Yogyakarta King\'s Cup Event',
+    paragraphs: [
+      'Kancho Yoshii Okubo, Shihan Takashi Saito, and Shihan Naotaka Tamura attended as guests of honor. The next day, the Kancho held a seminar at Prambanan Temple and taught his own created kata, Byakko ("white tiger"). Erick had the opportunity to learn Bo Kata directly from Kancho Okubo on the rooftop of the Royal Malioboro Hotel.',
+    ],
+  },
+  {
+    date: 'June 2, 2024',
+    title: 'Erick and the Musashi Project: Seminar with Shihan Akira Masuda, Kyokushin Do Sparring, and Recognition of the Meaning of Bushido',
+    paragraphs: [
+      'Erick was specifically asked to be involved in the Musashi Project, a full-contact karate seminar and championship organizer founded by Randy Tumewa. At this inaugural event, the Musashi Project brought in Shihan Akira Masuda, a 1991 world championship finalist and one of the Kyokushin practitioners who successfully completed the 100-man kumite in the Mas Oyama era.',
+      'At the end of the session, Shihan Masuda spontaneously selected Erick to spar using his own Kyokushin Do system. Before returning to Japan, Shihan Masuda said: "You showed very good fighting ability yesterday — I saw not just the fighting aspect, but also an understanding of the meaning of Bushido and its application in a fight."',
+    ],
+  },
+  {
+    date: 'June 30, 2024',
+    title: 'Erick Serves as Referee at the IKIGAI Tournament in Jakarta and Visits the KEMENPORA Office',
+    paragraphs: [
+      'Erick received an invitation from IKO Nakamura Indonesia to serve as a referee at the IKIGAI tournament in Jakarta. The organization sent Benedict Willem Troy, Gabriel Constantine Nangin, and Mikael Jericho Nangin. The next day, Erick visited the KEMENPORA (Ministry of Youth and Sports) office to obtain a recommendation confirming the organization\'s legitimate identity.',
+    ],
+  },
+  {
+    date: 'September - October 2024',
+    title: 'A Series of Major Events in Japan: Shido No Sato, Sosui Soeno\'s 77th Birthday, and The 44th Shidokan World Open Championship',
+    paragraphs: [
+      'Erick Danurahardja, Djohan Samuel Nangin, Dedy Setio, Jemima Rumiza Diovani, Gabriel Constantine Nangin, and Mikhael Jericho Nangin traveled to Japan for the following series of events:',
+    ],
+    sections: [
+      {
+        heading: 'Shido No Sato Completion Commemoration Party',
+        bullets: [
+          'A ceremonial event inaugurating a park next to the Honbu, containing monuments honoring Mas Oyama, Ikki Kajiwara, Ryuji Murakami, Yoshii Okubo, Kenichi Sato, Kouichiro Yamada, and Kiichi Yamada.',
+          'Sosui Soeno led the reading of the dojo pledge and presented awards to several senior Shihan, attended by honored guests including Kancho Hidenori Ashihara and Noriaki Sato.',
+        ],
+      },
+      {
+        heading: 'Sosui Yoshiji Soeno 77th Birthday Party, Hotel Ravie Kawaryo',
+        bullets: [
+          "Nearly 200 guests attended to celebrate Sosui Soeno's birthday. Erick Danurahardja represented Shidokan Indonesia alongside Branch Presidents from France, the Caribbean, and Hong Kong.",
+          'Erick had the opportunity to stand beside Kancho Hidenori Ashihara during the Kagami Biraki tradition, and presented a Sosui Soeno action figure along with tiger-themed boxing gloves as gifts.',
+        ],
+      },
+      {
+        heading: 'Training at Shido Hamamatsu Soeno',
+        bullets: [
+          "Trained together at Shihan Yamada's dojo in Hamamatsu — according to Erick, one of the finest dojos he has ever seen, complete with an oxygen room for athletes' needs.",
+          'Erick was asked to sit seiza beside Shihan Yamada to open the training ceremony, followed by kihon, Shikon No Kata, and 20 rounds of alternating kumite.',
+        ],
+      },
+      {
+        heading: '2024 Club Quattro Tour — Kakuda Nobuaki Concert',
+        bullets: [
+          'Erick, Djohan, and Jemima watched a concert by K1 legend Kakuda Nobuaki in Osaka and had the opportunity to take photos together afterward.',
+        ],
+      },
+      {
+        heading: 'WKA The Shidokan International Seminar, Yokohama Budokan',
+        bullets: [
+          'Sosui Soeno personally led the kihon movements. Jemima was asked to perform in front of the seminar participants because her movements were judged to be excellent, Mikhael Jericho performed Kata Yanstu, and Gabriel Constantine performed Go Hon Geri alongside Kiichi Yamada and Yusei Hirasawa.',
+          'Djohan Nangin was promoted to Dan III, while Shihan Tamura was promoted to Dan VI.',
+        ],
+      },
+      {
+        heading: 'The 44th Shidokan World Open Championship',
+        bullets: [
+          'Attended by more than 200 competitors from various countries. Jemima Diovani won 1st place — the first time an Indonesian female adult-category athlete has placed at the international level.',
+          "In the kata category, Mikhael Jericho took 1st place with Kata Byakko, and Gabriel Constantine took 2nd place with Shikon No Kata.",
+        ],
+      },
+    ],
+  },
+  {
+    date: 'November 10, 2024',
+    title: 'WBC Muay Thai Indonesia "Rise of The Local Hero"',
+    paragraphs: [
+      'The organization made its first debut in the Muay Thai category with Jemima Diovani and Sultan Zaki. Although neither won a medal, Erick, as head instructor, remained proud and reminded everyone that losing or winning is a perfectly natural part of the sport.',
+    ],
+  },
+  {
+    date: 'November 23, 2024',
+    title: 'Darwin Kurniawan Resigns from the Organization',
+    paragraphs: ['Darwin Kurniawan resigned from the organization.'],
+  },
+  {
+    date: 'November 30, 2024',
+    title: 'Fighter Audition by One Pride Championship: Jemima Diovani Passes in Category B',
+    paragraphs: [
+      'Jemima Diovani took part in the "Fighter Audition" held by One Pride Championship and was declared to have passed in Category B.',
+    ],
   },
 ]
 

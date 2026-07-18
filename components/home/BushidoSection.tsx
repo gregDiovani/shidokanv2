@@ -3,41 +3,63 @@
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import SectionHeading from '@/components/SectionHeading'
+import T from '@/components/T'
+import { useLanguage } from '@/lib/i18n'
 
 const virtues = [
   {
     kanji: '律',
-    name: 'Discipline',
-    description: 'The foundation of all growth. Every rep, every class, every belt is earned through consistent, deliberate effort.',
+    name: { id: 'Disiplin', en: 'Discipline' },
+    description: {
+      id: 'Fondasi dari semua perkembangan. Setiap repetisi, setiap kelas, setiap sabuk diraih lewat usaha yang konsisten dan disengaja.',
+      en: 'The foundation of all growth. Every rep, every class, every belt is earned through consistent, deliberate effort.',
+    },
   },
   {
     kanji: '礼',
-    name: 'Respect',
-    description: 'Bow to your opponent. Honor your sensei. Respect is not weakness — it is the mark of a true martial artist.',
+    name: { id: 'Hormat', en: 'Respect' },
+    description: {
+      id: 'Membungkuk pada lawan. Hormati sensei. Hormat bukan kelemahan — itu tanda seorang pesilat sejati.',
+      en: 'Bow to your opponent. Honor your sensei. Respect is not weakness — it is the mark of a true martial artist.',
+    },
   },
   {
     kanji: '勇',
-    name: 'Courage',
-    description: 'Step onto the mat when you are afraid. Compete when the outcome is uncertain. Courage is action in the face of doubt.',
+    name: { id: 'Keberanian', en: 'Courage' },
+    description: {
+      id: 'Menginjak matras saat takut. Bertanding walau hasilnya tidak pasti. Keberanian adalah tindakan di tengah keraguan.',
+      en: 'Step onto the mat when you are afraid. Compete when the outcome is uncertain. Courage is action in the face of doubt.',
+    },
   },
   {
     kanji: '誠',
-    name: 'Integrity',
-    description: 'Train honestly. Test your limits honestly. A rank means nothing if it was not genuinely earned.',
+    name: { id: 'Integritas', en: 'Integrity' },
+    description: {
+      id: 'Berlatih dengan jujur. Uji batas kemampuan dengan jujur. Sebuah tingkatan tidak berarti apa-apa jika tidak benar-benar diraih.',
+      en: 'Train honestly. Test your limits honestly. A rank means nothing if it was not genuinely earned.',
+    },
   },
   {
     kanji: '制',
-    name: 'Self-Control',
-    description: 'Power without control is dangerous. We train the body and the mind in equal measure.',
+    name: { id: 'Kendali Diri', en: 'Self-Control' },
+    description: {
+      id: 'Kekuatan tanpa kendali itu berbahaya. Kami melatih tubuh dan pikiran secara seimbang.',
+      en: 'Power without control is dangerous. We train the body and the mind in equal measure.',
+    },
   },
   {
     kanji: '継',
-    name: 'Perseverance',
-    description: 'Fall seven times, rise eight. The Shidokan spirit does not yield. It adapts, recovers, and pushes forward.',
+    name: { id: 'Ketekunan', en: 'Perseverance' },
+    description: {
+      id: 'Jatuh tujuh kali, bangkit delapan kali. Jiwa Shidokan tidak pernah menyerah. Ia beradaptasi, pulih, dan terus maju.',
+      en: 'Fall seven times, rise eight. The Shidokan spirit does not yield. It adapts, recovers, and pushes forward.',
+    },
   },
 ]
 
 export default function BushidoSection() {
+  const { lang } = useLanguage()
+
   return (
     <section className="relative py-24 overflow-hidden">
       {/* Background image */}
@@ -54,9 +76,14 @@ export default function BushidoSection() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-16">
           <SectionHeading
-            eyebrow="Philosophy"
-            title="Guided by Bushido"
-            subtitle="The warrior's code is not a relic of history — it is the standard by which every Shidokan practitioner is measured."
+            eyebrow={<T id="Filosofi" en="Philosophy" />}
+            title={<T id="Dipandu oleh Bushido" en="Guided by Bushido" />}
+            subtitle={
+              <T
+                id="Kode kesatria bukan peninggalan sejarah — itu adalah standar yang mengukur setiap praktisi Shidokan."
+                en="The warrior's code is not a relic of history — it is the standard by which every Shidokan practitioner is measured."
+              />
+            }
           />
         </div>
 
@@ -68,14 +95,14 @@ export default function BushidoSection() {
             transition={{ duration: 0.6 }}
             className="font-display text-[#DC2626] tracking-[0.2em] uppercase text-sm font-semibold mb-12"
           >
-            The Six Virtues We Live By
+            <T id="Enam Nilai yang Kami Pegang" en="The Six Virtues We Live By" />
           </motion.p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {virtues.map((virtue, i) => (
             <motion.div
-              key={virtue.name}
+              key={virtue.name.en}
               initial={{ opacity: 0, y: 32 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-60px' }}
@@ -87,10 +114,12 @@ export default function BushidoSection() {
                   {virtue.kanji}
                 </span>
                 <h3 className="font-display font-bold text-[#F2F2F2] text-xl uppercase tracking-wide mt-1">
-                  {virtue.name}
+                  {lang === 'id' ? virtue.name.id : virtue.name.en}
                 </h3>
               </div>
-              <p className="text-[#888888] text-sm font-sans leading-relaxed">{virtue.description}</p>
+              <p className="text-[#888888] text-sm font-sans leading-relaxed">
+                {lang === 'id' ? virtue.description.id : virtue.description.en}
+              </p>
             </motion.div>
           ))}
         </div>

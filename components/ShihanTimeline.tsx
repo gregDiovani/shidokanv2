@@ -1,15 +1,52 @@
 'use client'
 
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 import { ChevronDown } from 'lucide-react'
 import type { TimelineEntry } from '@/lib/shihan-data'
+
+function extractYear(date: string): string {
+  const match = date.match(/\d{4}/g)
+  return match ? match[match.length - 1] : date
+}
 
 export default function ShihanTimeline({ entries }: { entries: TimelineEntry[] }) {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
 
+  const years = useMemo(() => {
+    const unique = Array.from(new Set(entries.map((e) => extractYear(e.date))))
+    return unique.sort((a, b) => b.localeCompare(a))
+  }, [entries])
+
+  const [activeYear, setActiveYear] = useState<string>(years[0])
+
+  const filteredEntries = useMemo(
+    () => entries.filter((e) => extractYear(e.date) === activeYear),
+    [entries, activeYear]
+  )
+
   return (
-    <div className="space-y-3">
-      {entries.map((entry, i) => {
+    <div>
+      <div className="flex flex-wrap items-center justify-center gap-2 mb-8">
+        {years.map((year) => (
+          <button
+            key={year}
+            onClick={() => {
+              setActiveYear(year)
+              setOpenIndex(null)
+            }}
+            className={`font-display text-xs font-semibold tracking-widest uppercase px-4 py-2 border transition-colors ${
+              activeYear === year
+                ? 'bg-[#DC2626] border-[#DC2626] text-white'
+                : 'border-white/10 text-[#888888] hover:text-[#F2F2F2] hover:border-white/30'
+            }`}
+          >
+            {year}
+          </button>
+        ))}
+      </div>
+
+      <div className="space-y-3">
+      {filteredEntries.map((entry, i) => {
         const isOpen = openIndex === i
         return (
           <div key={`${entry.date}-${i}`} className="border border-white/10 bg-[#0D0D0D]">
@@ -68,6 +105,7 @@ export default function ShihanTimeline({ entries }: { entries: TimelineEntry[] }
           </div>
         )
       })}
+      </div>
     </div>
   )
 }

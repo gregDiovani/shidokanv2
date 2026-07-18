@@ -1,11 +1,12 @@
 'use client'
 
+import type { ReactNode } from 'react'
 import { motion } from 'framer-motion'
 
 interface SectionHeadingProps {
-  eyebrow?: string
-  title: string
-  subtitle?: string
+  eyebrow?: ReactNode
+  title: ReactNode
+  subtitle?: ReactNode
   centered?: boolean
   light?: boolean
 }
