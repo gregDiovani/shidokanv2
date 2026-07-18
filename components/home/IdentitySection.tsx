@@ -55,7 +55,7 @@ export default function IdentitySection() {
             <div className="space-y-4">
               <div className="relative aspect-square overflow-hidden border border-white/10">
                 <Image
-                  src="/images/shidokan-crest.png"
+                  src="/images/shidokan-crest.webp"
                   alt="Shidokan crest emblem"
                   fill
                   className="object-cover"
@@ -69,7 +69,7 @@ export default function IdentitySection() {
             <div className="space-y-4 mt-8">
               <div className="relative aspect-square overflow-hidden border border-white/10">
                 <Image
-                  src="/images/dojo-logo.png"
+                  src="/images/dojo-logo.webp"
                   alt="Shidokan dojo logo"
                   fill
                   className="object-cover"

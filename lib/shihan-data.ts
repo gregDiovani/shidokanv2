@@ -70,19 +70,19 @@ export const testimonials: Testimonial[] = [
     name: 'Yoshiji Soeno',
     date: 'Mei 2023',
     quote: 'Erick is very strong. Samurai Spirit.',
-    image: '/images/yoshiji-soeno.png',
+    image: '/images/yoshiji-soeno.webp',
   },
   {
     name: 'Satoshi Yui',
     date: 'November 2023',
     quote: 'Very good technique, you have a good form in kumite.',
-    image: '/images/satoshi-yui.png',
+    image: '/images/satoshi-yui.webp',
   },
   {
     name: 'Akira Masuda',
     date: 'Juni 2024',
     quote: 'You have a good skills, not only fight but also understand bushido in Kyokushin way.',
-    image: '/images/akira-masuda.png',
+    image: '/images/akira-masuda.webp',
   },
 ]
 

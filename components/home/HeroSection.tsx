@@ -7,9 +7,9 @@ import { ChevronDown } from 'lucide-react'
 import T from '@/components/T'
 
 const slides = [
-  '/images/hero-bg2.JPG',
-  '/images/hero-bg3.JPG',
-  '/images/hero-bg4.png',
+  '/images/hero-bg2.webp',
+  '/images/hero-bg3.webp',
+  '/images/hero-bg4.webp',
 ]
 
 export default function HeroSection() {

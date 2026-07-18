@@ -19,7 +19,7 @@ export default function AboutTeaser() {
             className="relative aspect-[4/3] overflow-hidden border border-white/10"
           >
             <Image
-              src="/images/black-belt.png"
+              src="/images/black-belt.webp"
               alt="Black belt being tied"
               fill
               className="object-cover"
