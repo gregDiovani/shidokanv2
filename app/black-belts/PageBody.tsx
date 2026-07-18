@@ -27,7 +27,7 @@ export default function BlackBeltsPageBody() {
       <section className="relative pt-40 pb-24 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/black-belt.png"
+            src="/images/black-belt.webp"
             alt="Shidokan black belt"
             fill
             priority

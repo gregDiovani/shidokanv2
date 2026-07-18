@@ -37,7 +37,7 @@ export default function ShihanPageBody() {
           {/* Portrait */}
           <div className="relative aspect-[3/4] overflow-hidden border border-white/10 max-w-md">
             <Image
-              src="/images/2-home-profil.jpg"
+              src="/images/2-home-profil.webp"
               alt="Shihan Erick Danurahardja"
               fill
               priority

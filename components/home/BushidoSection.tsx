@@ -19,7 +19,7 @@ const virtues = [
     kanji: '礼',
     name: { id: 'Hormat', en: 'Respect' },
     description: {
-      id: 'Membungkuk pada lawan. Hormati sensei. Hormat bukan kelemahan — itu tanda seorang pesilat sejati.',
+      id: 'Membungkuk pada lawan. Hormati sensei. Hormat bukan kelemahan — itu tanda seorang karateka sejati.',
       en: 'Bow to your opponent. Honor your sensei. Respect is not weakness — it is the mark of a true martial artist.',
     },
   },
@@ -65,7 +65,7 @@ export default function BushidoSection() {
       {/* Background image */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/bushido-warrior.png"
+          src="/images/bushido-warrior.webp"
           alt="Bushido warrior"
           fill
           className="object-cover opacity-15"

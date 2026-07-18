@@ -30,7 +30,7 @@ export default function AboutPage() {
         <section className="relative pt-40 pb-24 overflow-hidden">
           <div className="absolute inset-0 z-0">
             <Image
-              src="/images/about-dojo.png"
+              src="/images/about-dojo.webp"
               alt="Shidokan dojo"
               fill
               priority
@@ -72,7 +72,7 @@ export default function AboutPage() {
 
             <div className="relative aspect-[3/4] overflow-hidden border border-white/10">
               <Image
-                src="/images/shihan-portrait.png"
+                src="/images/shihan-portrait.webp"
                 alt="Shidokan sensei"
                 fill
                 className="object-cover"
