@@ -186,7 +186,7 @@ export default function ContactPageBody() {
                       value={form.name}
                       onChange={handleChange}
                       className="w-full bg-[#0A0A0A] border border-white/10 text-[#F2F2F2] font-sans text-sm px-4 py-3 focus:outline-none focus:border-[#DC2626] transition-colors"
-                      placeholder="John Doe"
+                      placeholder="Gregorio Diovani"
                     />
                   </div>
 
@@ -203,8 +203,8 @@ export default function ContactPageBody() {
                       className="w-full bg-[#0A0A0A] border border-white/10 text-[#F2F2F2] font-sans text-sm px-4 py-3 focus:outline-none focus:border-[#DC2626] transition-colors resize-none"
                       placeholder={
                         lang === 'id'
-                          ? 'Ceritakan pengalaman bela dirimu, tujuanmu, atau pertanyaan apapun...'
-                          : 'Tell us about your martial arts experience, goals, or any questions you have...'
+                          ? 'Contoh: Saya ingin daftar kelas, dojo mana yang terdekat dengan lokasi saya?'
+                          : 'E.g. I would like to register for a class — which dojo is closest to my location?'
                       }
                     />
                   </div>
