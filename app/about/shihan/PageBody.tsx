@@ -86,6 +86,36 @@ export default function ShihanPageBody() {
         </div>
       </section>
 
+      {/* Achievements */}
+      <section className="pb-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="relative aspect-[3/4] overflow-hidden border border-white/10 max-w-md order-2 lg:order-1">
+            <Image
+              src="/images/awards.webp"
+              alt={lang === 'id' ? 'Penghargaan Shihan Erick Danurahardja' : 'Awards received by Shihan Erick Danurahardja'}
+              fill
+              className="object-cover"
+            />
+          </div>
+          <div className="order-1 lg:order-2">
+            <div className="flex items-center gap-3 mb-6">
+              <span className="block w-8 h-px bg-[#DC2626]" />
+              <span className="font-display text-[#DC2626] text-sm tracking-[0.2em] uppercase font-semibold">
+                {lang === 'id' ? 'Penghargaan' : 'Awards'}
+              </span>
+            </div>
+            <h2 className="font-display font-bold text-[#F2F2F2] text-3xl md:text-4xl uppercase tracking-tight leading-none mb-6 text-balance">
+              {lang === 'id' ? 'Pengakuan Sepanjang Perjalanan' : 'Recognition Along the Way'}
+            </h2>
+            <p className="text-[#888888] font-sans text-base leading-relaxed">
+              {lang === 'id'
+                ? 'Rangkaian penghargaan dan pengakuan resmi yang diterima Shihan Erick sepanjang dedikasinya melatih, membangun, dan mengembangkan Shidokan di Indonesia.'
+                : "A collection of official awards and recognition Shihan Erick has received throughout his dedication to training, building, and growing Shidokan in Indonesia."}
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Legends Testimonials */}
       <section className="py-24 bg-[#0D0D0D] border-y border-white/5">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
