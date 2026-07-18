@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { ChevronDown } from 'lucide-react'
 import T from '@/components/T'
 
@@ -26,24 +26,25 @@ export default function HeroSection() {
     <section className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
       {/* Background image carousel */}
       <div className="absolute inset-0 z-0">
-        <AnimatePresence>
+        {/* All slides stay mounted and preloaded so switching is a pure
+            opacity crossfade — no mid-animation fetch/decode flash. */}
+        {slides.map((slide, i) => (
           <motion.div
-            key={slideIndex}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
+            key={slide}
+            initial={false}
+            animate={{ opacity: i === slideIndex ? 1 : 0 }}
             transition={{ duration: 1 }}
             className="absolute inset-0"
           >
             <Image
-              src={slides[slideIndex]}
+              src={slide}
               alt="Shidokan Karate dojo"
               fill
-              priority={slideIndex === 0}
+              priority
               className="object-cover"
             />
           </motion.div>
-        </AnimatePresence>
+        ))}
         {/* Dark overlay */}
         <div className="absolute inset-0 bg-[#0A0A0A]/70" />
         {/* Bottom gradient fade */}
