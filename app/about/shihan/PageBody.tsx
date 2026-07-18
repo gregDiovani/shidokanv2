@@ -35,20 +35,31 @@ export default function ShihanPageBody() {
       <section className="pb-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           {/* Portrait */}
-          <div className="relative aspect-[3/4] overflow-hidden border border-white/10 max-w-md">
-            <Image
-              src="/images/2-home-profil.webp"
-              alt="Shihan Erick Danurahardja"
-              fill
-              priority
-              className="object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A]/70 via-transparent to-transparent" />
-            <div className="absolute bottom-0 left-0 right-0 p-8">
-              <p className="font-display font-bold text-white text-3xl uppercase tracking-wide">Erick Danurahardja</p>
-              <p className="font-display text-[#DC2626] text-sm tracking-widest uppercase mt-1">
-                {lang === 'id' ? 'Shihan & Branch President Indonesia' : 'Shihan & Branch President Indonesia'}
-              </p>
+          <div className="space-y-6 max-w-md">
+            <div className="relative aspect-[3/4] overflow-hidden border border-white/10">
+              <Image
+                src="/images/2-home-profil.webp"
+                alt="Shihan Erick Danurahardja"
+                fill
+                priority
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A]/70 via-transparent to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-8">
+                <p className="font-display font-bold text-white text-3xl uppercase tracking-wide">Erick Danurahardja</p>
+                <p className="font-display text-[#DC2626] text-sm tracking-widest uppercase mt-1">
+                  {lang === 'id' ? 'Shihan & Branch President Indonesia' : 'Shihan & Branch President Indonesia'}
+                </p>
+              </div>
+            </div>
+
+            <div className="relative aspect-[3/4] overflow-hidden border border-white/10">
+              <Image
+                src="/images/awards.webp"
+                alt={lang === 'id' ? 'Penghargaan Shihan Erick Danurahardja' : 'Awards received by Shihan Erick Danurahardja'}
+                fill
+                className="object-cover"
+              />
             </div>
           </div>
 
@@ -82,36 +93,6 @@ export default function ShihanPageBody() {
                 ))}
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Achievements */}
-      <section className="pb-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div className="relative aspect-[3/4] overflow-hidden border border-white/10 max-w-md order-2 lg:order-1">
-            <Image
-              src="/images/awards.webp"
-              alt={lang === 'id' ? 'Penghargaan Shihan Erick Danurahardja' : 'Awards received by Shihan Erick Danurahardja'}
-              fill
-              className="object-cover"
-            />
-          </div>
-          <div className="order-1 lg:order-2">
-            <div className="flex items-center gap-3 mb-6">
-              <span className="block w-8 h-px bg-[#DC2626]" />
-              <span className="font-display text-[#DC2626] text-sm tracking-[0.2em] uppercase font-semibold">
-                {lang === 'id' ? 'Penghargaan' : 'Awards'}
-              </span>
-            </div>
-            <h2 className="font-display font-bold text-[#F2F2F2] text-3xl md:text-4xl uppercase tracking-tight leading-none mb-6 text-balance">
-              {lang === 'id' ? 'Pengakuan Sepanjang Perjalanan' : 'Recognition Along the Way'}
-            </h2>
-            <p className="text-[#888888] font-sans text-base leading-relaxed">
-              {lang === 'id'
-                ? 'Rangkaian penghargaan dan pengakuan resmi yang diterima Shihan Erick sepanjang dedikasinya melatih, membangun, dan mengembangkan Shidokan di Indonesia.'
-                : "A collection of official awards and recognition Shihan Erick has received throughout his dedication to training, building, and growing Shidokan in Indonesia."}
-            </p>
           </div>
         </div>
       </section>
