@@ -18,12 +18,12 @@ const oswald = Oswald({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://budokarate.or.id'),
-  title: 'Shidokan Karate — The Triathlon of Martial Arts',
+  title: 'Shidokan Indonesia — The Triathlon of Martial Arts',
   description:
     'Shidokan Karate combines full-contact karate, Muay Thai, and grappling into one complete martial arts system. Train with purpose. Earn your rank.',
   keywords: ['Shidokan', 'karate', 'martial arts', 'Muay Thai', 'grappling', 'dojo', 'self-defense'],
   openGraph: {
-    title: 'Shidokan Karate',
+    title: 'Shidokan Indonesia',
     description: 'The Triathlon of Martial Arts',
     url: '/',
     siteName: 'Shidokan Indonesia',
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Shidokan Karate',
+    title: 'Shidokan Indonesia',
     description: 'The Triathlon of Martial Arts',
     images: ['/images/hero-bg2.webp'],
   },

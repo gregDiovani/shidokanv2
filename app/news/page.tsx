@@ -5,9 +5,9 @@ import { getNewsList } from '@/lib/news-data'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Dojo News | Shidokan Karate',
+  title: 'Dojo News | Shidokan Indonesia',
   description:
-    'Stay up to date with the latest news, competition results, grading announcements, and events from Shidokan Karate.',
+    'Stay up to date with the latest news, competition results, grading announcements, and events from Shidokan Indonesia.',
 }
 
 export default async function NewsPage() {
