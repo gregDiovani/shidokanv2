@@ -28,7 +28,7 @@ function WhatsAppIcon({ size = 18 }: { size?: number }) {
 
 const navLinks = [
   { href: '/', id: 'Home', en: 'Home' },
-  { href: '/about/shihan', id: 'Profile', en: 'Profile' },
+  { href: '/about/profile', id: 'Profile', en: 'Profile' },
   { href: '/black-belts', id: 'Black Belts', en: 'Black Belts' },
   { href: '/dojo', id: 'Dojo List', en: 'Dojo List' },
   { href: '/news', id: 'Berita Dojo', en: 'Dojo News' },

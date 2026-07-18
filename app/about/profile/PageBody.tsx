@@ -53,7 +53,10 @@ export default function ShihanPageBody() {
               </div>
             </div>
 
-            <div className="relative flex-1 min-h-[220px] overflow-hidden border border-white/10">
+            {/* Spacer pushes the awards photo down so its bottom lines up with the Ringkasan box */}
+            <div className="flex-1" />
+
+            <div className="relative aspect-[3/4] overflow-hidden border border-white/10 shrink-0">
               <Image
                 src="/images/awards.webp"
                 alt={lang === 'id' ? 'Penghargaan Shihan Erick Danurahardja' : 'Awards received by Shihan Erick Danurahardja'}

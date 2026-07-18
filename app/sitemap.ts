@@ -5,7 +5,7 @@ const baseUrl = 'https://budokarate.or.id'
 const routes = [
   '',
   '/about',
-  '/about/shihan',
+  '/about/profile',
   '/black-belts',
   '/contact',
   '/dojo',

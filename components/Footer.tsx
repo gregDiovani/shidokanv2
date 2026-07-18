@@ -25,7 +25,7 @@ function WhatsAppIcon({ size = 16 }: { size?: number }) {
 
 const quickLinks = [
   { href: '/', id: 'Home', en: 'Home' },
-  { href: '/about/shihan', id: 'Profile', en: 'Profile' },
+  { href: '/about/profile', id: 'Profile', en: 'Profile' },
   { href: '/news', id: 'Berita Dojo', en: 'Dojo News' },
   { href: '/#faq', id: 'FAQ', en: 'FAQ' },
   { href: '/contact', id: 'Kontak', en: 'Contact' },
