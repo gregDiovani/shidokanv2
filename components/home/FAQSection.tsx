@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Link from 'next/link'
 import { ChevronDown } from 'lucide-react'
 import SectionHeading from '@/components/SectionHeading'
 import T from '@/components/T'
@@ -90,10 +91,23 @@ export default function FAQSection() {
           eyebrow="FAQ"
           title={<T id="Pertanyaan yang Sering Diajukan" en="Frequently Asked Questions" />}
           subtitle={
-            <T
-              id="Belum ketemu jawaban yang kamu cari? Hubungi kami langsung lewat WhatsApp."
-              en="Can't find the answer you're looking for? Reach out to us directly on WhatsApp."
-            />
+            lang === 'id' ? (
+              <>
+                Belum ketemu jawaban yang kamu cari? Hubungi kami langsung lewat{' '}
+                <Link href="/contact" className="text-[#DC2626] hover:underline">
+                  Contact
+                </Link>
+                .
+              </>
+            ) : (
+              <>
+                Can&apos;t find the answer you&apos;re looking for? Reach out to us directly via{' '}
+                <Link href="/contact" className="text-[#DC2626] hover:underline">
+                  Contact
+                </Link>
+                .
+              </>
+            )
           }
           centered
         />
