@@ -33,10 +33,10 @@ export default function ShihanPageBody() {
       </section>
 
       <section className="pb-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-stretch">
           {/* Portrait */}
-          <div className="space-y-6 max-w-md">
-            <div className="relative aspect-[3/4] overflow-hidden border border-white/10">
+          <div className="flex flex-col gap-6 max-w-md">
+            <div className="relative aspect-[3/4] overflow-hidden border border-white/10 shrink-0">
               <Image
                 src="/images/2-home-profil.webp"
                 alt="Shihan Erick Danurahardja"
@@ -53,7 +53,7 @@ export default function ShihanPageBody() {
               </div>
             </div>
 
-            <div className="relative aspect-[3/4] overflow-hidden border border-white/10">
+            <div className="relative flex-1 min-h-[220px] overflow-hidden border border-white/10">
               <Image
                 src="/images/awards.webp"
                 alt={lang === 'id' ? 'Penghargaan Shihan Erick Danurahardja' : 'Awards received by Shihan Erick Danurahardja'}
