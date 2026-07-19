@@ -11,7 +11,12 @@ const nextConfig = {
     return [
       {
         source: '/about/shihan',
-        destination: '/about/profile',
+        destination: '/about/erick-danurahardja',
+        permanent: true,
+      },
+      {
+        source: '/about/profile',
+        destination: '/about/erick-danurahardja',
         permanent: true,
       },
     ]

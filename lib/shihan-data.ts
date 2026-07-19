@@ -23,6 +23,20 @@ export interface TimelineEntry {
   sections?: TimelineSection[]
 }
 
+export interface GalleryImage {
+  src: string
+  caption: string
+  captionEn: string
+}
+
+export const erickGallery: GalleryImage[] = [
+  {
+    src: '/images/erick/erick-soeno.webp',
+    caption: 'Bersama Sosui Yoshiji Soeno',
+    captionEn: 'With Sosui Yoshiji Soeno',
+  },
+]
+
 export const bioParagraphs: string[] = [
   'Perguruan didirikan oleh Erick Danurahardja, seorang praktisi Kyokushin Karate sejak 2003 yang pada waktu itu masih sebagai anggota dari Kyokushin Karate Indonesia (KKI) pimpinan Shihan JB Sujoto.',
   'Pada tahun 2008 KKI bergabung dengan Shinkyokushinkai pimpinan Kenji Midori dan berubah menjadi World Karate Organization Shinkyokushin Indonesia (WKOSI).',

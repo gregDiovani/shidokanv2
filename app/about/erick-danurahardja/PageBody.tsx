@@ -7,6 +7,7 @@ import { useLanguage } from '@/lib/i18n'
 import {
   bioParagraphs,
   bioParagraphsEn,
+  erickGallery,
   quickFacts,
   quickFactsEn,
   testimonials,
@@ -38,7 +39,7 @@ export default function ShihanPageBody() {
           <div className="flex flex-col gap-6 max-w-md">
             <div className="relative aspect-[3/4] overflow-hidden border border-white/10 shrink-0">
               <Image
-                src="/images/2-home-profil.webp"
+                src="/images/erick/erick-profile.webp"
                 alt="Shihan Erick Danurahardja"
                 fill
                 priority
@@ -58,7 +59,7 @@ export default function ShihanPageBody() {
 
             <div className="relative aspect-[3/4] overflow-hidden border border-white/10 shrink-0">
               <Image
-                src="/images/awards.webp"
+                src="/images/erick/erick-awards.webp"
                 alt={lang === 'id' ? 'Penghargaan Shihan Erick Danurahardja' : 'Awards received by Shihan Erick Danurahardja'}
                 fill
                 className="object-cover"
@@ -135,6 +136,42 @@ export default function ShihanPageBody() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Gallery */}
+      <section className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-14">
+          <div className="flex items-center justify-center gap-3 mb-4">
+            <span className="block w-8 h-px bg-[#DC2626]" />
+            <span className="font-display text-[#DC2626] text-sm tracking-[0.2em] uppercase font-semibold">
+              {lang === 'id' ? 'Galeri' : 'Gallery'}
+            </span>
+            <span className="block w-8 h-px bg-[#DC2626]" />
+          </div>
+          <h2 className="font-display font-bold text-[#F2F2F2] text-3xl md:text-4xl uppercase tracking-tight text-balance max-w-2xl mx-auto">
+            {lang === 'id' ? 'Momen di Balik Perjalanan' : "Moments Along the Journey"}
+          </h2>
+        </div>
+
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+          {erickGallery.map((img) => (
+            <div
+              key={img.src}
+              className="group relative aspect-square overflow-hidden border border-white/10 bg-[#0D0D0D]"
+            >
+              <Image
+                src={img.src}
+                alt={lang === 'id' ? img.caption : img.captionEn}
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A]/90 via-[#0A0A0A]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <p className="absolute bottom-0 left-0 right-0 p-3 font-sans text-xs text-[#F2F2F2] leading-snug opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
+                {lang === 'id' ? img.caption : img.captionEn}
+              </p>
+            </div>
+          ))}
         </div>
       </section>
 
