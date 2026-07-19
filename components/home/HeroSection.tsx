@@ -8,11 +8,11 @@ import T from '@/components/T'
 
 const slides = [
   '/carousel/hero-bg1.webp',
-  '/carousel/hero-bg2.webp',
+  '/carousel/hero-bg6.webp',
   '/carousel/hero-bg3.webp',
   '/carousel/hero-bg4.webp',
   '/carousel/hero-bg5.webp',
-  '/carousel/hero-bg6.webp',
+  '/carousel/hero-bg2.webp',
 ]
 
 export default function HeroSection() {
@@ -43,7 +43,8 @@ export default function HeroSection() {
               src={slide}
               alt="Shidokan Karate dojo"
               fill
-              priority
+              priority={i === 0}
+              loading={i === 0 ? undefined : 'lazy'}
               className="object-cover"
             />
           </motion.div>
