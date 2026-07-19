@@ -1,8 +1,9 @@
 'use client'
 
+import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { MapPin, Phone, /* Mail, */ Clock } from 'lucide-react'
+import { ChevronRight, MapPin, Phone, /* Mail, */ Clock } from 'lucide-react'
 import { useLanguage } from '@/lib/i18n'
 
 function InstagramIcon({ size = 16 }: { size?: number }) {
@@ -25,11 +26,18 @@ function WhatsAppIcon({ size = 16 }: { size?: number }) {
 
 const quickLinks = [
   { href: '/', id: 'Home', en: 'Home' },
-  { href: '/about/profile', id: 'Profile', en: 'Profile' },
+  {
+    id: 'Profile',
+    en: 'Profile',
+    dropdown: [
+      { href: '/about/erick-danurahardja', label: 'Erick Danurahardja' },
+      { href: '/about/yoshiji-soeno', label: 'Yoshiji Soeno' },
+    ],
+  },
   { href: '/news', id: 'Berita Dojo', en: 'Dojo News' },
   { href: '/#faq', id: 'FAQ', en: 'FAQ' },
   { href: '/contact', id: 'Kontak', en: 'Contact' },
-]
+] as const
 
 // const programs = [
 //   { href: '/programs#cubs', label: 'Cubs (4–5)' },
@@ -42,6 +50,19 @@ const quickLinks = [
 
 export default function Footer() {
   const { lang } = useLanguage()
+  const [dropdownOpen, setDropdownOpen] = useState(false)
+  const dropdownRef = useRef<HTMLLIElement>(null)
+
+  useEffect(() => {
+    if (!dropdownOpen) return
+    const handleClick = (e: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setDropdownOpen(false)
+      }
+    }
+    document.addEventListener('mousedown', handleClick)
+    return () => document.removeEventListener('mousedown', handleClick)
+  }, [dropdownOpen])
 
   return (
     <footer className="bg-[#0D0D0D] border-t border-white/5 pt-16 pb-8">
@@ -95,16 +116,50 @@ export default function Footer() {
               {lang === 'id' ? 'Tautan Cepat' : 'Quick Links'}
             </h3>
             <ul className="space-y-3">
-              {quickLinks.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-[#888888] hover:text-[#DC2626] text-sm font-sans transition-colors"
-                  >
-                    {lang === 'id' ? link.id : link.en}
-                  </Link>
-                </li>
-              ))}
+              {quickLinks.map((link) =>
+                'dropdown' in link ? (
+                  <li key={link.id} ref={dropdownRef} className="relative w-fit">
+                    <button
+                      type="button"
+                      onClick={() => setDropdownOpen((v) => !v)}
+                      className="flex items-center gap-1 text-[#888888] hover:text-[#DC2626] text-sm font-sans transition-colors"
+                      aria-expanded={dropdownOpen}
+                    >
+                      {lang === 'id' ? link.id : link.en}
+                      <ChevronRight
+                        size={14}
+                        className={`transition-colors duration-200 ${dropdownOpen ? 'text-[#DC2626]' : ''}`}
+                      />
+                    </button>
+                    <div
+                      className={`absolute left-full top-1/2 -translate-y-1/2 ml-2 w-44 bg-[#0A0A0A] border border-white/10 shadow-lg py-2 z-20 origin-left transition-[opacity,transform] duration-200 ease-out ${
+                        dropdownOpen
+                          ? 'opacity-100 scale-100 translate-x-0 pointer-events-auto'
+                          : 'opacity-0 scale-95 -translate-x-1 pointer-events-none'
+                      }`}
+                    >
+                      {link.dropdown.map((item) => (
+                        <Link
+                          key={item.href}
+                          href={item.href}
+                          className="block px-4 py-2.5 text-sm font-sans text-[#888888] hover:text-[#F2F2F2] hover:bg-white/5 transition-colors"
+                        >
+                          {item.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </li>
+                ) : (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      className="text-[#888888] hover:text-[#DC2626] text-sm font-sans transition-colors"
+                    >
+                      {lang === 'id' ? link.id : link.en}
+                    </Link>
+                  </li>
+                )
+              )}
             </ul>
           </div>
 
@@ -116,10 +171,15 @@ export default function Footer() {
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <MapPin size={16} className="text-[#DC2626] mt-0.5 shrink-0" />
-                <span className="text-[#888888] text-sm font-sans leading-relaxed">
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=Jl.+Kalisari+I+No.1%2C+RT.001%2FRW.11%2C+Kapasari%2C+Kec.+Genteng%2C+Surabaya%2C+Jawa+Timur+60272"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#888888] hover:text-[#F2F2F2] text-sm font-sans leading-relaxed transition-colors"
+                >
                   Jl. Kalisari I No.1, RT.001/RW.11, Kapasari,<br />
                   Kec. Genteng, Surabaya, Jawa Timur 60272
-                </span>
+                </a>
               </li>
               <li className="flex items-center gap-3">
                 <Phone size={16} className="text-[#DC2626] shrink-0" />
@@ -135,6 +195,17 @@ export default function Footer() {
                 </div>
               </li>
             </ul>
+
+            <div className="mt-5 border border-white/10 overflow-hidden h-40">
+              <iframe
+                title="Lokasi Shidokan Indonesia"
+                src="https://www.google.com/maps/embed?pb=!1m2!2m1!1sJl.%20Kalisari%20I%20No.1%2C%20RT.001%2FRW.11%2C%20Kapasari%2C%20Kec.%20Genteng%2C%20Surabaya%2C%20Jawa%20Timur%2060272"
+                className="w-full h-full grayscale-40 contrast-125"
+                style={{ border: 0 }}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
           </div>
         </div>
 
