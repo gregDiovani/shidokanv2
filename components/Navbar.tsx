@@ -1,10 +1,10 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, ChevronDown } from 'lucide-react'
 import { useLanguage } from '@/lib/i18n'
 import LanguageToggle from '@/components/LanguageToggle'
 
@@ -28,17 +28,27 @@ function WhatsAppIcon({ size = 18 }: { size?: number }) {
 
 const navLinks = [
   { href: '/', id: 'Home', en: 'Home' },
-  { href: '/about/profile', id: 'Profile', en: 'Profile' },
+  {
+    id: 'Profile',
+    en: 'Profile',
+    dropdown: [
+      { href: '/about/erick-danurahardja', label: 'Erick Danurahardja' },
+      { href: '/about/yoshiji-soeno', label: 'Yoshiji Soeno' },
+    ],
+  },
   { href: '/black-belts', id: 'Black Belts', en: 'Black Belts' },
   { href: '/dojo', id: 'Dojo List', en: 'Dojo List' },
   { href: '/news', id: 'Berita Dojo', en: 'Dojo News' },
   { href: '/#faq', id: 'FAQ', en: 'FAQ' },
   { href: '/contact', id: 'Kontak', en: 'Contact' },
-]
+] as const
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
+  const [desktopDropdownOpen, setDesktopDropdownOpen] = useState(false)
+  const [mobileDropdownOpen, setMobileDropdownOpen] = useState(false)
+  const dropdownRef = useRef<HTMLDivElement>(null)
   const pathname = usePathname()
   const { lang } = useLanguage()
 
@@ -51,7 +61,21 @@ export default function Navbar() {
   // Close mobile menu on route change
   useEffect(() => {
     setMobileOpen(false)
+    setDesktopDropdownOpen(false)
+    setMobileDropdownOpen(false)
   }, [pathname])
+
+  // Close desktop dropdown on outside click
+  useEffect(() => {
+    if (!desktopDropdownOpen) return
+    const handleClick = (e: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setDesktopDropdownOpen(false)
+      }
+    }
+    document.addEventListener('mousedown', handleClick)
+    return () => document.removeEventListener('mousedown', handleClick)
+  }, [desktopDropdownOpen])
 
   const isHome = pathname === '/'
 
@@ -83,19 +107,57 @@ export default function Navbar() {
 
           {/* Desktop Nav */}
           <div className="hidden lg:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={`font-sans text-sm tracking-wider uppercase transition-colors duration-200 ${
-                  pathname === link.href
-                    ? 'text-[#DC2626]'
-                    : 'text-[#888888] hover:text-[#F2F2F2]'
-                }`}
-              >
-                {lang === 'id' ? link.id : link.en}
-              </Link>
-            ))}
+            {navLinks.map((link) =>
+              'dropdown' in link ? (
+                <div key={link.id} className="relative" ref={dropdownRef}>
+                  <button
+                    onClick={() => setDesktopDropdownOpen((v) => !v)}
+                    className={`flex items-center gap-1 font-sans text-sm tracking-wider uppercase transition-colors duration-200 ${
+                      link.dropdown.some((d) => d.href === pathname)
+                        ? 'text-[#DC2626]'
+                        : 'text-[#888888] hover:text-[#F2F2F2]'
+                    }`}
+                    aria-expanded={desktopDropdownOpen}
+                  >
+                    {lang === 'id' ? link.id : link.en}
+                    <ChevronDown size={14} className={`transition-transform ${desktopDropdownOpen ? 'rotate-180' : ''}`} />
+                  </button>
+                  <div
+                    className={`absolute top-full left-0 mt-3 w-56 bg-[#0A0A0A] border border-white/10 shadow-lg py-2 origin-top transition-[opacity,transform] duration-200 ease-out ${
+                      desktopDropdownOpen
+                        ? 'opacity-100 scale-100 translate-y-0 pointer-events-auto'
+                        : 'opacity-0 scale-95 -translate-y-1 pointer-events-none'
+                    }`}
+                  >
+                    {link.dropdown.map((item) => (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        className={`block px-4 py-2.5 font-sans text-sm tracking-wide transition-colors ${
+                          pathname === item.href
+                            ? 'text-[#DC2626]'
+                            : 'text-[#888888] hover:text-[#F2F2F2] hover:bg-white/5'
+                        }`}
+                      >
+                        {item.label}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              ) : (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`font-sans text-sm tracking-wider uppercase transition-colors duration-200 ${
+                    pathname === link.href
+                      ? 'text-[#DC2626]'
+                      : 'text-[#888888] hover:text-[#F2F2F2]'
+                  }`}
+                >
+                  {lang === 'id' ? link.id : link.en}
+                </Link>
+              )
+            )}
           </div>
 
           {/* Right side */}
@@ -140,19 +202,63 @@ export default function Navbar() {
         {/* Mobile Menu */}
         {mobileOpen && (
           <div className="lg:hidden border-t border-white/5 py-6 space-y-1">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={`block py-3 px-2 font-display text-lg tracking-widest uppercase transition-colors ${
-                  pathname === link.href
-                    ? 'text-[#DC2626]'
-                    : 'text-[#888888] hover:text-[#F2F2F2]'
-                }`}
-              >
-                {lang === 'id' ? link.id : link.en}
-              </Link>
-            ))}
+            {navLinks.map((link) =>
+              'dropdown' in link ? (
+                <div key={link.id}>
+                  <button
+                    onClick={() => setMobileDropdownOpen((v) => !v)}
+                    className={`w-full flex items-center justify-between py-3 px-2 font-display text-lg tracking-widest uppercase transition-colors ${
+                      link.dropdown.some((d) => d.href === pathname)
+                        ? 'text-[#DC2626]'
+                        : 'text-[#888888] hover:text-[#F2F2F2]'
+                    }`}
+                    aria-expanded={mobileDropdownOpen}
+                  >
+                    {lang === 'id' ? link.id : link.en}
+                    <ChevronDown size={18} className={`transition-transform ${mobileDropdownOpen ? 'rotate-180' : ''}`} />
+                  </button>
+                  <div
+                    className={`grid transition-[grid-template-rows] duration-300 ease-in-out ${
+                      mobileDropdownOpen ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'
+                    }`}
+                  >
+                    <div className="overflow-hidden">
+                      <div
+                        className={`pl-4 pb-2 space-y-1 transition-opacity duration-200 ${
+                          mobileDropdownOpen ? 'opacity-100 delay-100' : 'opacity-0'
+                        }`}
+                      >
+                        {link.dropdown.map((item) => (
+                          <Link
+                            key={item.href}
+                            href={item.href}
+                            className={`block py-2.5 px-2 font-sans text-sm tracking-wide uppercase transition-colors ${
+                              pathname === item.href
+                                ? 'text-[#DC2626]'
+                                : 'text-[#666666] hover:text-[#F2F2F2]'
+                            }`}
+                          >
+                            {item.label}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`block py-3 px-2 font-display text-lg tracking-widest uppercase transition-colors ${
+                    pathname === link.href
+                      ? 'text-[#DC2626]'
+                      : 'text-[#888888] hover:text-[#F2F2F2]'
+                  }`}
+                >
+                  {lang === 'id' ? link.id : link.en}
+                </Link>
+              )
+            )}
             <div className="flex items-center gap-4 px-2 pt-4 border-t border-white/5 mt-4">
               <a href="https://www.instagram.com/shidokan.id?igsh=MWk2bnljMzdkMTVlNg==" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-[#888888]">
                 <InstagramIcon size={20} />
