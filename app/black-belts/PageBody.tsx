@@ -1,6 +1,8 @@
 'use client'
 
+import { useState } from 'react'
 import Image from 'next/image'
+import { ChevronDown } from 'lucide-react'
 import SectionHeading from '@/components/SectionHeading'
 import CTABanner from '@/components/home/CTABanner'
 import { blackBeltRanks } from '@/lib/black-belts-data'
@@ -11,7 +13,7 @@ function BeltStripes({ count }: { count: number }) {
     <div className="relative h-8 w-24 sm:w-28 shrink-0 rounded-sm bg-[#0A0A0A] border border-white/10 overflow-hidden shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]">
       <div className="absolute inset-y-0 right-0 flex items-center gap-1 pr-2">
         {Array.from({ length: count }).map((_, i) => (
-          <span key={i} className="block w-1.5 h-6 bg-[#DC2626]" />
+          <span key={i} className="block w-1.5 h-6 bg-[#EAB308]" />
         ))}
       </div>
     </div>
@@ -20,6 +22,13 @@ function BeltStripes({ count }: { count: number }) {
 
 export default function BlackBeltsPageBody() {
   const { lang } = useLanguage()
+  const [openRanks, setOpenRanks] = useState<Record<string, boolean>>(
+    Object.fromEntries(blackBeltRanks.map((rank) => [rank.dan, true]))
+  )
+
+  const toggleRank = (dan: string) => {
+    setOpenRanks((prev) => ({ ...prev, [dan]: !prev[dan] }))
+  }
 
   return (
     <>
@@ -55,42 +64,68 @@ export default function BlackBeltsPageBody() {
 
       {/* Rank Sections */}
       <section className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
-        {blackBeltRanks.map((rank) => (
-          <div key={rank.dan}>
-            <div className="flex flex-wrap items-center gap-6 mb-10">
-              <SectionHeading eyebrow={rank.label} title={rank.dan} />
-              <BeltStripes count={rank.stripes} />
-            </div>
+        {blackBeltRanks.map((rank) => {
+          const isOpen = openRanks[rank.dan]
+          return (
+            <div key={rank.dan}>
+              <button
+                type="button"
+                onClick={() => toggleRank(rank.dan)}
+                className="w-full flex flex-wrap items-center gap-6 mb-10 text-left"
+                aria-expanded={isOpen}
+              >
+                <SectionHeading eyebrow={rank.label} title={rank.dan} />
+                <BeltStripes count={rank.stripes} />
+                <ChevronDown
+                  size={22}
+                  className={`ml-auto text-[#666666] shrink-0 transition-transform duration-300 ${
+                    isOpen ? 'rotate-180' : ''
+                  }`}
+                />
+              </button>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {rank.members.map((member) => (
-                <div
-                  key={member.name}
-                  className="group relative overflow-hidden border border-white/10 bg-[#0D0D0D] px-6 py-5 transition-colors duration-200 hover:border-[#DC2626]/40"
-                >
-                  <div className="absolute left-0 top-0 h-full w-1 bg-[#DC2626]" />
-                  <p className="font-display font-semibold text-[#F2F2F2] text-lg uppercase tracking-wide leading-snug">
-                    {member.name}
-                  </p>
-                  <div className="mt-3 flex items-center justify-between">
-                    <span className="font-sans text-xs text-[#666666] tracking-wider">
-                      {member.number !== '-' ? `No. ${member.number}` : rank.dan}
-                    </span>
-                    <span
-                      className={`font-display text-xs font-semibold uppercase tracking-widest px-2 py-1 ${
-                        member.status === 'Aktif'
-                          ? 'text-[#22C55E] bg-[#22C55E]/10'
-                          : 'text-[#888888] bg-white/5'
-                      }`}
-                    >
-                      {member.status}
-                    </span>
+              <div
+                className={`grid transition-[grid-template-rows] duration-300 ease-in-out ${
+                  isOpen ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'
+                }`}
+              >
+                <div className="overflow-hidden">
+                  <div
+                    className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 transition-opacity duration-200 ${
+                      isOpen ? 'opacity-100 delay-100' : 'opacity-0'
+                    }`}
+                  >
+                    {rank.members.map((member) => (
+                      <div
+                        key={member.name}
+                        className="group relative overflow-hidden border border-white/10 bg-[#0D0D0D] px-6 py-5 transition-colors duration-200 hover:border-[#DC2626]/40"
+                      >
+                        <div className="absolute left-0 top-0 h-full w-1 bg-[#DC2626]" />
+                        <p className="font-display font-semibold text-[#F2F2F2] text-lg uppercase tracking-wide leading-snug">
+                          {member.name}
+                        </p>
+                        <div className="mt-3 flex items-center justify-between">
+                          <span className="font-sans text-xs text-[#666666] tracking-wider">
+                            {member.number !== '-' ? `No. ${member.number}` : rank.dan}
+                          </span>
+                          <span
+                            className={`font-display text-xs font-semibold uppercase tracking-widest px-2 py-1 ${
+                              member.status === 'Aktif'
+                                ? 'text-[#22C55E] bg-[#22C55E]/10'
+                                : 'text-[#888888] bg-white/5'
+                            }`}
+                          >
+                            {member.status}
+                          </span>
+                        </div>
+                      </div>
+                    ))}
                   </div>
                 </div>
-              ))}
+              </div>
             </div>
-          </div>
-        ))}
+          )
+        })}
       </section>
 
       <CTABanner
