@@ -29,13 +29,13 @@ export const metadata: Metadata = {
     siteName: 'Shidokan Indonesia',
     locale: 'id_ID',
     type: 'website',
-    images: [{ url: '/images/hero-bg2.webp', width: 1920, height: 1280 }],
+    images: [{ url: '/carousel/hero-bg1.webp', width: 1920, height: 1280 }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Shidokan Indonesia',
     description: 'The Triathlon of Martial Arts',
-    images: ['/images/hero-bg2.webp'],
+    images: ['/carousel/hero-bg1.webp'],
   },
   robots: {
     index: true,
