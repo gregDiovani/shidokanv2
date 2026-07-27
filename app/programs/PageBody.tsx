@@ -132,7 +132,7 @@ export default function ProgramsPageBody() {
                   className="inline-flex items-center gap-2 bg-[#DC2626] hover:bg-[#B91C1C] text-white font-display font-bold text-sm tracking-widest uppercase px-6 py-3 transition-colors group"
                 >
                   Enquire About This Program
-                  <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight size={14} className="transition-transform [@media(hover:hover)]:group-hover:translate-x-1" />
                 </Link>
               </div>
             </div>

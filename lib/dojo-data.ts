@@ -46,7 +46,7 @@ const mockDojoList: Dojo[] = [
   {
     instructor: 'I Putu Ray Lewi Andrean',
     name: 'Vortex Dojo Singaraja',
-    region: 'Bali',
+    region: 'Badung',
     address: 'Vortex Dojo, Universitas Dhyana Pura, Dalung, Kab. Badung, Bali',
     schedule: 'Sabtu, 16.00 WIB',
     instagram: 'kyokushin.bali',
@@ -55,7 +55,7 @@ const mockDojoList: Dojo[] = [
   {
     instructor: 'Melkianus Raharjo Jemahun',
     name: 'Vortex Dojo Singaraja',
-    region: 'Bali',
+    region: 'Badung',
     address: 'Vortex Dojo, Universitas Dhyana Pura, Dalung, Kab. Badung, Bali',
     schedule: 'Sabtu, 16.00 WIB',
     instagram: 'kyokushin.bali',
@@ -71,7 +71,7 @@ const mockDojoList: Dojo[] = [
   {
     instructor: 'William Adriano',
     name: 'YamaGawa Dojo',
-    region: 'Jawa Barat',
+    region: 'Bandung Barat',
     address: 'NuArt Sanctuary, Jl. Setra Duta Raya No. L6, Ciwaruga, Kec. Parongpong, Kab. Bandung Barat, Jawa Barat 40151',
     schedule: 'By Appointment',
     phone: formatPhoneID('81286888666'),

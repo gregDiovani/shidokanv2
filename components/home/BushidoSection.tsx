@@ -110,7 +110,7 @@ export default function BushidoSection() {
               className="group bg-[#111111]/80 backdrop-blur-sm border border-white/5 p-6 hover:border-[#DC2626]/30 transition-all duration-300"
             >
               <div className="flex items-start gap-4 mb-4">
-                <span className="font-display text-4xl text-[#DC2626]/40 leading-none group-hover:text-[#DC2626]/60 transition-colors">
+                <span className="font-display text-4xl text-[#DC2626]/40 leading-none transition-colors [@media(hover:hover)]:group-hover:text-[#DC2626]/60">
                   {virtue.kanji}
                 </span>
                 <h3 className="font-display font-bold text-[#F2F2F2] text-xl uppercase tracking-wide mt-1">

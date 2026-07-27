@@ -5,7 +5,6 @@ import CTABanner from '@/components/home/CTABanner'
 import { useLanguage } from '@/lib/i18n'
 import {
   soenoBioParagraphs,
-  soenoBioParagraphsEn,
   soenoGallery,
   soenoQuickFacts,
   soenoQuickFactsEn,
@@ -13,7 +12,7 @@ import {
 
 export default function SoenoPageBody() {
   const { lang } = useLanguage()
-  const bio = lang === 'id' ? soenoBioParagraphs : soenoBioParagraphsEn
+  const bio = soenoBioParagraphs
   const facts = lang === 'id' ? soenoQuickFacts : soenoQuickFactsEn
 
   return (
@@ -53,11 +52,7 @@ export default function SoenoPageBody() {
           {/* Bio */}
           <div className="lg:pt-4">
             <h1 className="font-display font-bold text-[#F2F2F2] text-5xl md:text-6xl uppercase tracking-tight leading-none mb-8 text-balance">
-              {lang === 'id' ? (
-                <>Sang <span className="text-[#DC2626]">Tiger</span> of Kyokushin</>
-              ) : (
-                <>The <span className="text-[#DC2626]">Tiger</span> of Kyokushin</>
-              )}
+              Sang <span className="text-[#DC2626]">Tiger</span> of Kyokushin
             </h1>
 
             <div className="space-y-4 text-[#888888] font-sans text-base leading-relaxed mb-10">
@@ -110,10 +105,10 @@ export default function SoenoPageBody() {
                   src={img.src}
                   alt={lang === 'id' ? img.caption : img.captionEn}
                   fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  className="object-cover transition-transform duration-500 [@media(hover:hover)]:group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A]/90 via-[#0A0A0A]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <p className="absolute bottom-0 left-0 right-0 p-3 font-sans text-xs text-[#F2F2F2] leading-snug opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A]/90 via-[#0A0A0A]/10 to-transparent opacity-0 transition-opacity duration-300 [@media(hover:hover)]:group-hover:opacity-100" />
+                <p className="absolute bottom-0 left-0 right-0 p-3 font-sans text-xs text-[#F2F2F2] leading-snug opacity-0 translate-y-2 transition-all duration-300 [@media(hover:hover)]:group-hover:opacity-100 [@media(hover:hover)]:group-hover:translate-y-0">
                   {lang === 'id' ? img.caption : img.captionEn}
                 </p>
               </div>

@@ -27,16 +27,20 @@ function WhatsAppIcon({ size = 18 }: { size?: number }) {
 }
 
 const navLinks = [
-  { href: '/', id: 'Home', en: 'Home' },
   {
-    id: 'Profile',
-    en: 'Profile',
+    id: 'Shidokan Legacy',
+    en: 'Shidokan Legacy',
     dropdown: [
-      { href: '/about/erick-danurahardja', label: 'Erick Danurahardja' },
-      { href: '/about/yoshiji-soeno', label: 'Yoshiji Soeno' },
+      { href: '/about/yoshiji-soeno', label: 'Sosui' },
+      { href: '/about/kancho', label: 'Kancho' },
+      { href: '/about/erick-danurahardja', label: 'Shibucho' },
+      { href: '/about/pride-of-shido', label: 'Pride of Shido' },
+      { href: '/about/national-elite', label: 'National Elite' },
+      { href: '/about/hall-of-legends', label: 'Hall of Legends' },
     ],
   },
-  { href: '/black-belts', id: 'Black Belts', en: 'Black Belts' },
+  { href: '/chronicle', id: 'Chronicle', en: 'Chronicle' },
+  { href: '/black-belts', id: 'Kuro Obi', en: 'Kuro Obi' },
   { href: '/dojo', id: 'Dojo List', en: 'Dojo List' },
   { href: '/news', id: 'Berita Dojo', en: 'Dojo News' },
   { href: '/#faq', id: 'FAQ', en: 'FAQ' },
@@ -100,9 +104,8 @@ export default function Navbar() {
               priority
             />
             <span className="font-display font-bold text-2xl tracking-widest text-[#F2F2F2] uppercase">
-              Shidokan<span className="text-[#DC2626]">ID</span>
+              Shidokan<span className="text-[#DC2626]">.ID</span>
             </span>
-            <span className="w-1.5 h-1.5 rounded-full bg-[#DC2626] mt-1 group-hover:scale-125 transition-transform" />
           </Link>
 
           {/* Desktop Nav */}
@@ -181,12 +184,6 @@ export default function Navbar() {
               <WhatsAppIcon size={18} />
             </a>
             <LanguageToggle />
-            <Link
-              href="/contact"
-              className="ml-2 bg-[#DC2626] hover:bg-[#B91C1C] text-white font-display font-semibold text-sm tracking-widest uppercase px-5 py-2.5 transition-colors duration-200"
-            >
-              {lang === 'id' ? 'Coba Kelas' : 'Try a Class'}
-            </Link>
           </div>
 
           {/* Mobile toggle */}
@@ -267,12 +264,6 @@ export default function Navbar() {
                 <WhatsAppIcon size={20} />
               </a>
               <LanguageToggle />
-              <Link
-                href="/contact"
-                className="ml-auto bg-[#DC2626] hover:bg-[#B91C1C] text-white font-display font-semibold text-sm tracking-widest uppercase px-5 py-2.5 transition-colors"
-              >
-                {lang === 'id' ? 'Coba Kelas' : 'Try a Class'}
-              </Link>
             </div>
           </div>
         )}

@@ -29,7 +29,7 @@ export default function NewsCard({ id, category, title, excerpt, date, image, in
           src={image}
           alt={title}
           fill
-          className="object-cover group-hover:scale-105 transition-transform duration-700"
+          className="object-cover transition-transform duration-700 [@media(hover:hover)]:group-hover:scale-105"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#111111] via-transparent to-transparent" />
         <span className="absolute top-4 left-4 bg-[#DC2626] text-white font-display text-xs tracking-widest uppercase px-3 py-1 font-semibold">

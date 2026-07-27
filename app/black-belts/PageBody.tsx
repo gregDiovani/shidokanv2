@@ -52,7 +52,7 @@ export default function BlackBeltsPageBody() {
             </span>
           </div>
           <h1 className="font-display font-bold text-[#F2F2F2] text-5xl sm:text-6xl md:text-7xl uppercase tracking-tight leading-none mb-6 max-w-3xl text-balance">
-            Black Belts
+            Kuro Obi
           </h1>
           <p className="text-[#888888] font-sans text-lg leading-relaxed max-w-2xl">
             {lang === 'id'

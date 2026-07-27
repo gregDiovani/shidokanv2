@@ -62,7 +62,7 @@ export default function AboutTeaser() {
               className="inline-flex items-center gap-3 bg-transparent border border-[#DC2626] text-[#DC2626] hover:bg-[#DC2626] hover:text-white font-display font-bold text-sm tracking-widest uppercase px-8 py-4 transition-all duration-200 group"
             >
               Our Story
-              <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+              <ArrowRight size={14} className="transition-transform [@media(hover:hover)]:group-hover:translate-x-1" />
             </Link>
           </motion.div>
         </div>

@@ -2,24 +2,19 @@
 
 import Image from 'next/image'
 import CTABanner from '@/components/home/CTABanner'
-import ShihanTimeline from '@/components/ShihanTimeline'
 import { useLanguage } from '@/lib/i18n'
 import {
   bioParagraphs,
-  bioParagraphsEn,
   erickGallery,
   quickFacts,
   quickFactsEn,
   testimonials,
-  timeline,
-  timelineEn,
 } from '@/lib/shihan-data'
 
 export default function ShihanPageBody() {
   const { lang } = useLanguage()
-  const bio = lang === 'id' ? bioParagraphs : bioParagraphsEn
+  const bio = bioParagraphs
   const facts = lang === 'id' ? quickFacts : quickFactsEn
-  const entries = lang === 'id' ? timeline : timelineEn
 
   return (
     <>
@@ -70,11 +65,7 @@ export default function ShihanPageBody() {
           {/* Bio */}
           <div className="lg:pt-4">
             <h1 className="font-display font-bold text-[#F2F2F2] text-5xl md:text-6xl uppercase tracking-tight leading-none mb-8 text-balance">
-              {lang === 'id' ? (
-                <>Sejarah & <span className="text-[#DC2626]">Biografi</span> Perguruan</>
-              ) : (
-                <>History & <span className="text-[#DC2626]">Biography</span> of the Organization</>
-              )}
+              Sejarah & <span className="text-[#DC2626]">Biografi</span> Perguruan
             </h1>
 
             <div className="space-y-4 text-[#888888] font-sans text-base leading-relaxed mb-10">
@@ -137,60 +128,6 @@ export default function ShihanPageBody() {
             ))}
           </div>
         </div>
-      </section>
-
-      {/* Gallery */}
-      <section className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-14">
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <span className="block w-8 h-px bg-[#DC2626]" />
-            <span className="font-display text-[#DC2626] text-sm tracking-[0.2em] uppercase font-semibold">
-              {lang === 'id' ? 'Galeri' : 'Gallery'}
-            </span>
-            <span className="block w-8 h-px bg-[#DC2626]" />
-          </div>
-          <h2 className="font-display font-bold text-[#F2F2F2] text-3xl md:text-4xl uppercase tracking-tight text-balance max-w-2xl mx-auto">
-            {lang === 'id' ? 'Momen di Balik Perjalanan' : "Moments Along the Journey"}
-          </h2>
-        </div>
-
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-          {erickGallery.map((img) => (
-            <div
-              key={img.src}
-              className="group relative aspect-square overflow-hidden border border-white/10 bg-[#0D0D0D]"
-            >
-              <Image
-                src={img.src}
-                alt={lang === 'id' ? img.caption : img.captionEn}
-                fill
-                className="object-cover transition-transform duration-500 group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A]/90 via-[#0A0A0A]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <p className="absolute bottom-0 left-0 right-0 p-3 font-sans text-xs text-[#F2F2F2] leading-snug opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-                {lang === 'id' ? img.caption : img.captionEn}
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Timeline */}
-      <section className="py-24 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-14">
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <span className="block w-8 h-px bg-[#DC2626]" />
-            <span className="font-display text-[#DC2626] text-sm tracking-[0.2em] uppercase font-semibold">
-              {lang === 'id' ? 'Jejak Langkah' : 'Timeline'}
-            </span>
-            <span className="block w-8 h-px bg-[#DC2626]" />
-          </div>
-          <h2 className="font-display font-bold text-[#F2F2F2] text-3xl md:text-4xl uppercase tracking-tight">
-            {lang === 'id' ? 'List Biografi Shidokan Indonesia' : 'Shidokan Indonesia Biography Timeline'}
-          </h2>
-        </div>
-
-        <ShihanTimeline entries={entries} />
       </section>
 
       <CTABanner

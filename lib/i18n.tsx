@@ -10,14 +10,14 @@ interface LanguageContextValue {
 }
 
 const LanguageContext = createContext<LanguageContextValue>({
-  lang: 'id',
+  lang: 'en',
   toggleLang: () => {},
 })
 
 const STORAGE_KEY = 'shidokan-lang'
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [lang, setLang] = useState<Lang>('id')
+  const [lang, setLang] = useState<Lang>('en')
 
   useEffect(() => {
     const stored = window.localStorage.getItem(STORAGE_KEY)
