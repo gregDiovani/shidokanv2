@@ -17,8 +17,8 @@ export default function NationalElitePage() {
         <LegacyGallery
           eyebrow="Shidokan Legacy"
           eyebrowEn="Shidokan Legacy"
-          title="National Elite"
-          titleEn="National Elite"
+          title="National Elite Squad"
+          titleEn="National Elite Squad"
           subtitle="Atlet nasional Shidokan Indonesia yang berprestasi di berbagai kejuaraan Kyokushin."
           subtitleEn="Shidokan Indonesia's national athletes competing and achieving across Kyokushin championships."
           images={nationalEliteGallery}
