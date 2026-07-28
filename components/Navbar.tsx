@@ -21,7 +21,7 @@ function InstagramIcon({ size = 18 }: { size?: number }) {
 function WhatsAppIcon({ size = 18 }: { size?: number }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.92 0-2.65-1.03-5.14-2.9-7.01A9.87 9.87 0 0 0 12.04 2zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.26-8.24a8.2 8.2 0 0 1 5.83 2.42 8.19 8.19 0 0 1 2.41 5.83c0 4.55-3.7 8.23-8.25 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.17.24-.64.81-.78.97-.14.17-.29.19-.53.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.39-1.72-.14-.24-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.15.16-.25.24-.42.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.42-.14-.01-.31-.01-.48-.01a.92.92 0 0 0-.67.31c-.23.24-.87.85-.87 2.08 0 1.22.89 2.41 1.02 2.58.12.17 1.75 2.67 4.24 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.23-.16-.48-.28z"/>
+      <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.92 0-2.65-1.03-5.14-2.9-7.01A9.87 9.87 0 0 0 12.04 2zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.26-8.24a8.2 8.2 0 0 1 5.83 2.42 8.19 8.19 0 0 1 2.41 5.83c0 4.55-3.7 8.23-8.25 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.17.24-.64.81-.78.97-.14.17-.29.19-.53.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.39-1.72-.14-.24-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.15.16-.25.24-.42.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.42-.14-.01-.31-.01-.48-.01a.92.92 0 0 0-.67.31c-.23.24-.87.85-.87 2.08 0 1.22.89 2.41 1.02 2.58.12.17 1.75 2.67 4.24 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.23-.16-.48-.28z" />
     </svg>
   )
 }
@@ -35,7 +35,7 @@ const navLinks = [
       { href: '/about/kancho', label: 'Kancho' },
       { href: '/about/erick-danurahardja', label: 'Shibucho' },
       { href: '/about/pride-of-shido', label: 'Pride of Shido' },
-      { href: '/about/national-elite', label: 'National Elite' },
+      { href: '/about/national-elite', label: 'National Elite Squad' },
       { href: '/about/hall-of-legends', label: 'Hall of Legends' },
     ],
   },
@@ -85,11 +85,10 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled || !isHome || mobileOpen
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled || !isHome || mobileOpen
           ? 'bg-[#0A0A0A]/95 backdrop-blur-sm border-b border-white/5 shadow-lg'
           : 'bg-transparent'
-      }`}
+        }`}
     >
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
@@ -115,32 +114,29 @@ export default function Navbar() {
                 <div key={link.id} className="relative" ref={dropdownRef}>
                   <button
                     onClick={() => setDesktopDropdownOpen((v) => !v)}
-                    className={`flex items-center gap-1 font-sans text-sm tracking-wider uppercase transition-colors duration-200 ${
-                      link.dropdown.some((d) => d.href === pathname)
+                    className={`flex items-center gap-1 font-sans text-sm tracking-wider uppercase transition-colors duration-200 ${link.dropdown.some((d) => d.href === pathname)
                         ? 'text-[#DC2626]'
                         : 'text-[#888888] hover:text-[#F2F2F2]'
-                    }`}
+                      }`}
                     aria-expanded={desktopDropdownOpen}
                   >
                     {lang === 'id' ? link.id : link.en}
                     <ChevronDown size={14} className={`transition-transform ${desktopDropdownOpen ? 'rotate-180' : ''}`} />
                   </button>
                   <div
-                    className={`absolute top-full left-0 mt-3 w-56 bg-[#0A0A0A] border border-white/10 shadow-lg py-2 origin-top transition-[opacity,transform] duration-200 ease-out ${
-                      desktopDropdownOpen
+                    className={`absolute top-full left-0 mt-3 w-56 bg-[#0A0A0A] border border-white/10 shadow-lg py-2 origin-top transition-[opacity,transform] duration-200 ease-out ${desktopDropdownOpen
                         ? 'opacity-100 scale-100 translate-y-0 pointer-events-auto'
                         : 'opacity-0 scale-95 -translate-y-1 pointer-events-none'
-                    }`}
+                      }`}
                   >
                     {link.dropdown.map((item) => (
                       <Link
                         key={item.href}
                         href={item.href}
-                        className={`block px-4 py-2.5 font-sans text-sm tracking-wide transition-colors ${
-                          pathname === item.href
+                        className={`block px-4 py-2.5 font-sans text-sm tracking-wide transition-colors ${pathname === item.href
                             ? 'text-[#DC2626]'
                             : 'text-[#888888] hover:text-[#F2F2F2] hover:bg-white/5'
-                        }`}
+                          }`}
                       >
                         {item.label}
                       </Link>
@@ -151,11 +147,10 @@ export default function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`font-sans text-sm tracking-wider uppercase transition-colors duration-200 ${
-                    pathname === link.href
+                  className={`font-sans text-sm tracking-wider uppercase transition-colors duration-200 ${pathname === link.href
                       ? 'text-[#DC2626]'
                       : 'text-[#888888] hover:text-[#F2F2F2]'
-                  }`}
+                    }`}
                 >
                   {lang === 'id' ? link.id : link.en}
                 </Link>
@@ -204,36 +199,32 @@ export default function Navbar() {
                 <div key={link.id}>
                   <button
                     onClick={() => setMobileDropdownOpen((v) => !v)}
-                    className={`w-full flex items-center justify-between py-3 px-2 font-display text-lg tracking-widest uppercase transition-colors ${
-                      link.dropdown.some((d) => d.href === pathname)
+                    className={`w-full flex items-center justify-between py-3 px-2 font-display text-lg tracking-widest uppercase transition-colors ${link.dropdown.some((d) => d.href === pathname)
                         ? 'text-[#DC2626]'
                         : 'text-[#888888] hover:text-[#F2F2F2]'
-                    }`}
+                      }`}
                     aria-expanded={mobileDropdownOpen}
                   >
                     {lang === 'id' ? link.id : link.en}
                     <ChevronDown size={18} className={`transition-transform ${mobileDropdownOpen ? 'rotate-180' : ''}`} />
                   </button>
                   <div
-                    className={`grid transition-[grid-template-rows] duration-300 ease-in-out ${
-                      mobileDropdownOpen ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'
-                    }`}
+                    className={`grid transition-[grid-template-rows] duration-300 ease-in-out ${mobileDropdownOpen ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'
+                      }`}
                   >
                     <div className="overflow-hidden">
                       <div
-                        className={`pl-4 pb-2 space-y-1 transition-opacity duration-200 ${
-                          mobileDropdownOpen ? 'opacity-100 delay-100' : 'opacity-0'
-                        }`}
+                        className={`pl-4 pb-2 space-y-1 transition-opacity duration-200 ${mobileDropdownOpen ? 'opacity-100 delay-100' : 'opacity-0'
+                          }`}
                       >
                         {link.dropdown.map((item) => (
                           <Link
                             key={item.href}
                             href={item.href}
-                            className={`block py-2.5 px-2 font-sans text-sm tracking-wide uppercase transition-colors ${
-                              pathname === item.href
+                            className={`block py-2.5 px-2 font-sans text-sm tracking-wide uppercase transition-colors ${pathname === item.href
                                 ? 'text-[#DC2626]'
                                 : 'text-[#666666] hover:text-[#F2F2F2]'
-                            }`}
+                              }`}
                           >
                             {item.label}
                           </Link>
@@ -246,11 +237,10 @@ export default function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`block py-3 px-2 font-display text-lg tracking-widest uppercase transition-colors ${
-                    pathname === link.href
+                  className={`block py-3 px-2 font-display text-lg tracking-widest uppercase transition-colors ${pathname === link.href
                       ? 'text-[#DC2626]'
                       : 'text-[#888888] hover:text-[#F2F2F2]'
-                  }`}
+                    }`}
                 >
                   {lang === 'id' ? link.id : link.en}
                 </Link>
