@@ -34,7 +34,7 @@ const quickLinks = [
       { href: '/about/kancho', label: 'Kancho' },
       { href: '/about/erick-danurahardja', label: 'Shibucho' },
       { href: '/about/pride-of-shido', label: 'Pride of Shido' },
-      { href: '/about/national-elite', label: 'National Elite' },
+      { href: '/about/national-elite', label: 'National Elite Squad' },
       { href: '/about/hall-of-legends', label: 'Hall of Legends' },
     ],
   },
