@@ -117,17 +117,7 @@ export default function SoenoPageBody() {
         </div>
       </section>
 
-      <CTABanner
-        headline={lang === 'id' ? 'Berlatih dengan Warisan Shidokan' : 'Train Within the Shidokan Legacy'}
-        subline={
-          lang === 'id'
-            ? 'Kelas pertama gratis, tanpa komitmen. Rasakan sendiri standar latihan Shidokan.'
-            : 'Your first class is free, no commitment. Experience the Shidokan training standard for yourself.'
-        }
-        buttonText={lang === 'id' ? 'Coba Kelas Gratis' : 'Try a Free Class'}
-        buttonHref="/contact"
-        dark={false}
-      />
+      <CTABanner dark={false} />
     </>
   )
 }

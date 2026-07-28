@@ -135,13 +135,7 @@ export default function SchedulePageBody() {
         </div>
       </section>
 
-      <CTABanner
-        headline="Ready to Train?"
-        subline="Your first class is free. No contract, no pressure."
-        buttonText="Book Your First Class"
-        buttonHref="/contact"
-        dark={false}
-      />
+      <CTABanner dark={false} />
     </>
   )
 }

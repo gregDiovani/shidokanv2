@@ -108,13 +108,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <CTABanner
-          headline="Ready to Begin?"
-          subline="Take your first step. Your first class is free, no commitment required."
-          buttonText="Try a Free Class"
-          buttonHref="/contact"
-          dark={false}
-        />
+        <CTABanner dark={false} />
       </main>
       <Footer />
     </>

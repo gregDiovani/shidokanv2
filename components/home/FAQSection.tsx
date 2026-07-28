@@ -90,26 +90,8 @@ export default function FAQSection() {
         <SectionHeading
           eyebrow="FAQ"
           title={<T id="Pertanyaan yang Sering Diajukan" en="Frequently Asked Questions" />}
-          subtitle={
-            lang === 'id' ? (
-              <>
-                Belum ketemu jawaban yang kamu cari? Hubungi kami langsung lewat{' '}
-                <Link href="/contact" className="text-[#DC2626] hover:underline">
-                  Contact
-                </Link>
-                .
-              </>
-            ) : (
-              <>
-                Can&apos;t find the answer you&apos;re looking for? Reach out to us directly via{' '}
-                <Link href="/contact" className="text-[#DC2626] hover:underline">
-                  Contact
-                </Link>
-                .
-              </>
-            )
-          }
-          centered
+          subtitle=""
+          
         />
 
         <div className="mt-12 space-y-3">

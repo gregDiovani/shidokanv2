@@ -8,13 +8,31 @@ import CTABanner from '@/components/home/CTABanner'
 import { blackBeltRanks } from '@/lib/black-belts-data'
 import { useLanguage } from '@/lib/i18n'
 
+const statusStyles: Record<string, string> = {
+  Aktif: 'text-[#22C55E] bg-[#22C55E]/10',
+  Dicabut: 'text-[#EAB308] bg-[#EAB308]/10',
+  'Mengundurkan Diri': 'text-[#EF4444] bg-[#EF4444]/10',
+  'Meninggal Dunia': 'text-[#EAB308] bg-[#EAB308]/10',
+  Dipecat: 'text-[#EF4444] bg-[#EF4444]/10',
+}
+
 function BeltStripes({ count }: { count: number }) {
   return (
-    <div className="relative h-8 w-24 sm:w-28 shrink-0 rounded-sm bg-[#0A0A0A] border border-white/10 overflow-hidden shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]">
-      <div className="absolute inset-y-0 right-0 flex items-center gap-1 pr-2">
+    <div className="relative h-10 w-56 sm:w-64 shrink-0 rounded-sm bg-[#0A0A0A] border border-white/10 overflow-hidden shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] flex items-center pl-3 pr-2">
+      
+      <div className="flex-1" />
+      <div className="flex items-center gap-1 mx-2">
         {Array.from({ length: count }).map((_, i) => (
           <span key={i} className="block w-1.5 h-6 bg-[#EAB308]" />
         ))}
+      </div>
+      <div className="relative w-14 h-9 shrink-0">
+        <Image
+          src="/images/shidokan-belt-rotated-90-right.png"
+          alt="Shido-kan woven label"
+          fill
+          className="object-contain"
+        />
       </div>
     </div>
   )
@@ -91,35 +109,65 @@ export default function BlackBeltsPageBody() {
               >
                 <div className="overflow-hidden">
                   <div
-                    className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 transition-opacity duration-200 ${
+                    className={`overflow-x-auto border border-white/10 transition-opacity duration-200 ${
                       isOpen ? 'opacity-100 delay-100' : 'opacity-0'
                     }`}
                   >
-                    {rank.members.map((member) => (
-                      <div
-                        key={member.name}
-                        className="group relative overflow-hidden border border-white/10 bg-[#0D0D0D] px-6 py-5 transition-colors duration-200 hover:border-[#DC2626]/40"
-                      >
-                        <div className="absolute left-0 top-0 h-full w-1 bg-[#DC2626]" />
-                        <p className="font-display font-semibold text-[#F2F2F2] text-lg uppercase tracking-wide leading-snug">
-                          {member.name}
-                        </p>
-                        <div className="mt-3 flex items-center justify-between">
-                          <span className="font-sans text-xs text-[#666666] tracking-wider">
-                            {member.number !== '-' ? `No. ${member.number}` : rank.dan}
-                          </span>
-                          <span
-                            className={`font-display text-xs font-semibold uppercase tracking-widest px-2 py-1 ${
-                              member.status === 'Aktif'
-                                ? 'text-[#22C55E] bg-[#22C55E]/10'
-                                : 'text-[#888888] bg-white/5'
+                    <table className="w-full min-w-180 border-collapse text-left">
+                      <thead>
+                        <tr className="border-b border-white/10 bg-white/3">
+                          <th className="w-12 px-4 py-3 font-display text-xs font-semibold uppercase tracking-widest text-[#666666]">
+                            No
+                          </th>
+                          <th className="px-4 py-3 font-display text-xs font-semibold uppercase tracking-widest text-[#666666]">
+                            {lang === 'id' ? 'Nama' : 'Name'}
+                          </th>
+                          <th className="px-4 py-3 font-display text-xs font-semibold uppercase tracking-widest text-[#666666]">
+                            {lang === 'id' ? 'Cabang' : 'Branch'}
+                          </th>
+                          <th className="px-4 py-3 font-display text-xs font-semibold uppercase tracking-widest text-[#666666]">
+                            {lang === 'id' ? 'No. Sertifikat' : 'Certificate No.'}
+                          </th>
+                          <th className="px-4 py-3 font-display text-xs font-semibold uppercase tracking-widest text-[#666666]">
+                            {lang === 'id' ? 'Tanggal Terbit' : 'Date Issued'}
+                          </th>
+                          <th className="px-4 py-3 font-display text-xs font-semibold uppercase tracking-widest text-[#666666] text-right">
+                            Status
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {rank.members.map((member, i) => (
+                          <tr
+                            key={`${member.name}-${member.number}`}
+                            className={`border-b border-white/5 last:border-0 transition-colors duration-150 hover:bg-white/4 ${
+                              i % 2 === 1 ? 'bg-white/1.5' : ''
                             }`}
                           >
-                            {member.status}
-                          </span>
-                        </div>
-                      </div>
-                    ))}
+                            <td className="px-4 py-3 font-sans text-sm text-[#666666] tabular-nums">{i + 1}</td>
+                            <td className="px-4 py-3 font-display font-semibold text-[#F2F2F2] text-sm uppercase tracking-wide">
+                              {member.name}
+                            </td>
+                            <td className="px-4 py-3 font-sans text-sm text-[#888888]">{member.branch}</td>
+                            <td className="px-4 py-3 font-mono text-xs text-[#888888] tracking-wide">
+                              {member.number}
+                            </td>
+                            <td className="px-4 py-3 font-sans text-sm text-[#888888] whitespace-nowrap">
+                              {member.dateIssued}
+                            </td>
+                            <td className="px-4 py-3 text-right">
+                              <span
+                                className={`inline-block font-display text-xs font-semibold uppercase tracking-widest px-2 py-1 whitespace-nowrap ${
+                                  statusStyles[member.status] ?? 'text-[#888888] bg-white/5'
+                                }`}
+                              >
+                                {member.status}
+                              </span>
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
                   </div>
                 </div>
               </div>
@@ -128,17 +176,7 @@ export default function BlackBeltsPageBody() {
         })}
       </section>
 
-      <CTABanner
-        headline={lang === 'id' ? 'Kejar Sabuk Hitammu' : 'Chase Your Black Belt'}
-        subline={
-          lang === 'id'
-            ? 'Setiap nama di dinding ini memulai dari hari pertama. Bergabunglah dan mulai jalanmu sendiri menuju puncak.'
-            : 'Every name on this wall started on day one. Join us and start your own path to the top.'
-        }
-        buttonText={lang === 'id' ? 'Coba Kelas Gratis' : 'Try a Free Class'}
-        buttonHref="/contact"
-        dark={false}
-      />
+      <CTABanner dark={false} />
     </>
   )
 }

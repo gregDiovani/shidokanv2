@@ -1,3 +1,4 @@
+import { Suspense } from 'react'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import DojoPageBody from './PageBody'
@@ -16,7 +17,9 @@ export default async function DojoPage() {
     <>
       <Navbar />
       <main>
-        <DojoPageBody dojos={dojos} />
+        <Suspense>
+          <DojoPageBody dojos={dojos} />
+        </Suspense>
       </main>
       <Footer />
     </>

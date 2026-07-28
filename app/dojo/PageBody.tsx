@@ -31,17 +31,7 @@ export default function DojoPageBody({ dojos }: { dojos: Dojo[] }) {
         <DojoListFilter dojos={dojos} />
       </section>
 
-      <CTABanner
-        headline={lang === 'id' ? 'Cari Dojo Terdekat?' : 'Looking for the Nearest Dojo?'}
-        subline={
-          lang === 'id'
-            ? 'Hubungi kami untuk info jadwal latihan dan lokasi dojo terdekat dari tempatmu.'
-            : 'Contact us for training schedules and the dojo location closest to you.'
-        }
-        buttonText={lang === 'id' ? 'Hubungi Kami' : 'Contact Us'}
-        buttonHref="/contact"
-        dark={false}
-      />
+      <CTABanner dark={false} />
     </>
   )
 }

@@ -1,42 +1,50 @@
 'use client'
 
 import { useMemo, useState } from 'react'
-import { MapPin, Clock, Phone, User, AtSign, Sparkles, Map } from 'lucide-react'
+import { useSearchParams } from 'next/navigation'
+import { MapPin, Clock, Phone, User, AtSign, Sparkles, Map as MapIcon } from 'lucide-react'
 import { useLanguage } from '@/lib/i18n'
 import type { Dojo } from '@/lib/dojo-data'
 
 export default function DojoListFilter({ dojos }: { dojos: Dojo[] }) {
   const { lang } = useLanguage()
-  const allLabel = lang === 'id' ? 'Semua' : 'All'
-  const regions = useMemo(() => Array.from(new Set(dojos.map((d) => d.region))), [dojos])
-  const [active, setActive] = useState<string | null>(null)
+  const searchParams = useSearchParams()
+  const allLabel = lang === 'id' ? 'Semua Kota' : 'All Cities'
+  const regionCounts = useMemo(() => {
+    const counts = new Map<string, number>()
+    for (const d of dojos) counts.set(d.region, (counts.get(d.region) ?? 0) + 1)
+    return Array.from(counts.entries()).sort((a, b) => a[0].localeCompare(b[0]))
+  }, [dojos])
+  const regions = useMemo(() => regionCounts.map(([region]) => region), [regionCounts])
+  const initialCity = searchParams.get('city') ?? ''
+  const [active, setActive] = useState(regions.includes(initialCity) ? initialCity : '')
 
-  const filtered = active === null ? dojos : dojos.filter((d) => d.region === active)
+  const filtered = active === '' ? dojos : dojos.filter((d) => d.region === active)
 
   return (
     <div>
-      <div className="flex flex-wrap gap-2 mb-10">
+      <div className="flex flex-wrap gap-1.5 mb-10">
         <button
-          onClick={() => setActive(null)}
-          className={`font-display text-xs font-semibold uppercase tracking-widest px-4 py-2 border transition-colors duration-200 ${
-            active === null
+          onClick={() => setActive('')}
+          className={`font-display text-[11px] font-semibold uppercase tracking-widest px-3 py-1.5 rounded-full border transition-colors duration-200 ${
+            active === ''
               ? 'bg-[#DC2626] border-[#DC2626] text-white'
               : 'border-white/10 text-[#888888] hover:border-[#DC2626]/40 hover:text-[#F2F2F2]'
           }`}
         >
-          {allLabel}
+          {allLabel} ({dojos.length})
         </button>
-        {regions.map((region) => (
+        {regionCounts.map(([region, count]) => (
           <button
             key={region}
             onClick={() => setActive(region)}
-            className={`font-display text-xs font-semibold uppercase tracking-widest px-4 py-2 border transition-colors duration-200 ${
+            className={`font-display text-[11px] font-semibold uppercase tracking-widest px-3 py-1.5 rounded-full border transition-colors duration-200 ${
               active === region
                 ? 'bg-[#DC2626] border-[#DC2626] text-white'
                 : 'border-white/10 text-[#888888] hover:border-[#DC2626]/40 hover:text-[#F2F2F2]'
             }`}
           >
-            {region}
+            {region} ({count})
           </button>
         ))}
       </div>
@@ -56,10 +64,12 @@ export default function DojoListFilter({ dojos }: { dojos: Dojo[] }) {
               </span>
             </div>
             <div className="space-y-2.5">
-              <div className="flex items-start gap-2.5">
-                <User size={15} className="text-[#DC2626] mt-0.5 shrink-0" />
-                <span className="font-sans text-sm text-[#888888]">{dojo.instructor}</span>
-              </div>
+              {dojo.instructor && (
+                <div className="flex items-start gap-2.5">
+                  <User size={15} className="text-[#DC2626] mt-0.5 shrink-0" />
+                  <span className="font-sans text-sm text-[#888888]">{dojo.instructor}</span>
+                </div>
+              )}
               <div className="flex items-start gap-2.5">
                 <MapPin size={15} className="text-[#DC2626] mt-0.5 shrink-0" />
                 <span className="font-sans text-sm text-[#888888] leading-relaxed">{dojo.address}</span>
@@ -68,10 +78,12 @@ export default function DojoListFilter({ dojos }: { dojos: Dojo[] }) {
                 <Clock size={15} className="text-[#DC2626] mt-0.5 shrink-0" />
                 <span className="font-sans text-sm text-[#888888]">{dojo.schedule}</span>
               </div>
-              <div className="flex items-start gap-2.5">
-                <Phone size={15} className="text-[#DC2626] mt-0.5 shrink-0" />
-                <span className="font-sans text-sm text-[#888888]">{dojo.phone}</span>
-              </div>
+              {dojo.phone && (
+                <div className="flex items-start gap-2.5">
+                  <Phone size={15} className="text-[#DC2626] mt-0.5 shrink-0" />
+                  <span className="font-sans text-sm text-[#888888]">{dojo.phone}</span>
+                </div>
+              )}
               {dojo.instagram && (
                 <div className="flex items-start gap-2.5">
                   <AtSign size={15} className="text-[#DC2626] mt-0.5 shrink-0" />
@@ -104,7 +116,7 @@ export default function DojoListFilter({ dojos }: { dojos: Dojo[] }) {
               rel="noopener noreferrer"
               className="mt-4 inline-flex items-center gap-2 font-display text-xs font-semibold uppercase tracking-widest text-[#DC2626] hover:text-[#F87171] transition-colors"
             >
-              <Map size={14} />
+              <MapIcon size={14} />
               {lang === 'id' ? 'Buka di Google Maps' : 'Open in Google Maps'}
             </a>
           </div>

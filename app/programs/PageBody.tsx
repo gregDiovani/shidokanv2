@@ -140,13 +140,7 @@ export default function ProgramsPageBody() {
         ))}
       </section>
 
-      <CTABanner
-        headline="Not Sure Where to Start?"
-        subline="Come in for a free trial class. Our instructors will assess your level and recommend the right program."
-        buttonText="Book a Free Trial"
-        buttonHref="/contact"
-        dark={false}
-      />
+      <CTABanner dark={false} />
     </>
   )
 }

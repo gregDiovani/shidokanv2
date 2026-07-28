@@ -9,6 +9,7 @@ interface SectionHeadingProps {
   subtitle?: ReactNode
   centered?: boolean
   light?: boolean
+  size?: 'default' | 'md'
 }
 
 export default function SectionHeading({
@@ -17,6 +18,7 @@ export default function SectionHeading({
   subtitle,
   centered = false,
   light = false,
+  size = 'default',
 }: SectionHeadingProps) {
   return (
     <motion.div
@@ -35,9 +37,11 @@ export default function SectionHeading({
         </div>
       )}
       <h2
-        className={`font-display font-bold leading-none tracking-tight ${
+        className={`font-display font-bold leading-[1.05] tracking-tight ${
           light ? 'text-[#0A0A0A]' : 'text-[#F2F2F2]'
-        } text-4xl md:text-5xl lg:text-6xl uppercase text-balance`}
+        } ${
+          size === 'md' ? 'text-3xl md:text-4xl lg:text-5xl' : 'text-4xl md:text-5xl lg:text-6xl'
+        } uppercase text-balance`}
       >
         {title}
       </h2>

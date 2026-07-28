@@ -11,7 +11,6 @@ import NewsSection from '@/components/home/NewsSection'
 import AboutTeaser from '@/components/home/AboutTeaser'
 import DojoSection from '@/components/home/DojoSection'
 import FAQSection from '@/components/home/FAQSection'
-import T from '@/components/T'
 import { getDojoList } from '@/lib/dojo-data'
 import { getNewsList } from '@/lib/news-data'
 
@@ -29,28 +28,11 @@ export default async function Home() {
         <BushidoSection />
         {/* <ProgramsSection /> */}
         {/* <ScheduleSection /> */}
-        {/* <CTABanner
-          headline="Step on the Mat"
-          subline="Your first class is free. No commitment, no pressure — just real training with real people."
-          buttonText="Start Your Training"
-          buttonHref="/contact"
-        /> */}
         <NewsSection articles={news} />
         {/* <AboutTeaser /> */}
         <DojoSection dojos={dojos} />
         <FAQSection />
-        <CTABanner
-          headline={<T id="Berlatih dengan Tujuan" en="Train With Purpose" />}
-          subline={
-            <T
-              id="Setiap juara memulai dari pemula. Satu-satunya yang menghalangimu dari matras adalah keputusan untuk melangkah ke atasnya."
-              en="Every champion started as a beginner. The only thing standing between you and the mat is the decision to step on it."
-            />
-          }
-          buttonText={<T id="Hubungi Kami" en="Get in Touch" />}
-          buttonHref="/contact"
-          dark={false}
-        />
+        <CTABanner dark={false} />
       </main>
       <Footer />
     </>
