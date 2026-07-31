@@ -60,7 +60,7 @@ export const blackBeltRanks: DanRank[] = [
     label: '2nd Dan Black Belt',
     stripes: 2,
     members: [
-      { name: 'Oktavian Eka Putra', branch: 'Bali', number: 'INA-001-020', dateIssued: '26 June 2023', status: 'Aktif' },
+      { name: 'Oktavian Eka Putra', branch: 'Bali', number: 'INA-001-020', dateIssued: '26 June 2022', status: 'Aktif' },
       { name: 'Johan Samuel Nangin', branch: 'Bali', number: '2-36', dateIssued: '24 June 2023', status: 'Aktif' },
       { name: 'Abdul Halim', branch: 'Surabaya', number: 'INA-001-0', dateIssued: '25 February 2024', status: 'Aktif' },
     ],

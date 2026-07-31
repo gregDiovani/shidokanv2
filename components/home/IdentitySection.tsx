@@ -52,7 +52,7 @@ export default function IdentitySection() {
           >
             <div className="relative aspect-square overflow-hidden border border-white/10">
               <Image
-                src="/images/home/Shidokan.png"
+                src="/images/home/Shidokan.webp"
                 alt="Shidokan crest emblem"
                 fill
                 className="object-cover"
@@ -61,7 +61,7 @@ export default function IdentitySection() {
             </div>
             <div className="relative aspect-square overflow-hidden border border-white/10 bg-white mt-8">
               <Image
-                src="/images/home/kormi.png"
+                src="/images/home/kormi.webp"
                 alt="KORMI logo"
                 fill
                 className="object-contain p-4"
